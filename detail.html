@@ -21,18 +21,27 @@
       margin: auto;
     }
 
-    .card {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      background: #fff;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-      margin: 0 auto 20px auto;       /* 卡片上下留空、置中 */
-      width: 90%;                     /* 卡片不佔滿整個畫面 */
-      max-width: 500px; 
-    }
+  .card {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    margin: 0 auto 20px auto;
+    width: 90%;
+    max-width: 500px;
+    text-decoration: none;      /* 移除底線 */
+    color: inherit;             /* 保持原色 */
+    cursor: pointer;            /* 滑鼠指標變成手指 */
+    transition: transform 0.2s; /* 滑過時有動畫效果 */
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
     /* 卡片內圖片設定 */
     .card img {
@@ -79,11 +88,18 @@
 </head>
 
 <body>
-  <!-- 顯示部門名稱（例如 國小部、國中部） -->
-  <h1 id="class-title">課程分類</h1>
+  <div class="container">
+    <!-- 卡片上方的部門名稱 -->
+    <div class="card">
+      <div class="card-body">
+        <h2 id="class-title">課程分類</h2>
+      </div>
+    </div>
 
-  <!-- 放置卡片的區塊 -->
-  <div id="card-list"></div>
+    <!-- 放課程卡片的區域 -->
+    <div id="card-list"></div>
+  </div>
+
 
   <script>
     // 從網址取得 ?department=xxx 的參數
@@ -154,12 +170,13 @@
       a.href = `lesson.html?class=${departmentin}&id=${item.id}`; // 點擊後導向單一課程頁
       a.className = 'card';
       a.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" />
-        <div class="card-body">
-          <div class="card-title">${item.name}</div>
-          <div class="card-content">${item.content}</div>
-        </div>
-      `;
+      <img src="${item.image}" alt="${item.name}" />
+      <div class="card-body">
+        <div class="card-title">${item.name}</div>
+        <div class="card-content">${item.content}</div>
+      </div>
+    `;
+
 
       list.appendChild(a); // 加到網頁中
     });
