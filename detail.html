@@ -31,8 +31,31 @@
       text-decoration: none;             /* 去掉底線 */
       color: #333;                       /* 文字顏色 */
     }
+
+    /* 卡片內圖片設定 */
+    .card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* 卡片內文區塊 */
+    .card-body {
+      padding: 10px;
+    }
+
+    .card-body h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .card-body a {
+      color: #007aff;
+      text-decoration: none;
+    }
   </style>
 </head>
+
 <body>
   <!-- 顯示部門名稱（例如 國小部、國中部） -->
   <h1 id="class-title">課程分類</h1>
