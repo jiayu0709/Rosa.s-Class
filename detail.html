@@ -27,16 +27,22 @@
     const courseClass = params.get('class');
 
     const classTitleMap = {
-      baby: "幼兒部",
+      baby: "國小部",
       junior: "國小部",
       senior: "國中部"
     };
 
     const cardData = {
       baby: [
-        { id: 1, title: "全美外師互動班" },
-        { id: 2, title: "正音語文素養班" }
-      ],
+        { id: 1, 
+          name: "全美外師互動班",
+          content: "課程內容...",
+          image: "images/rosa2.jpg" },
+        { id: 2, 
+          name: "全美外師互動班",
+          content: "課程內容...",
+          image: "images/rosa2.jpg" }
+    ],
       junior: [
         { id: 1, title: "國小一年級數學" },
         { id: 2, title: "國小二年級自然" }
