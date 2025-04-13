@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>課程資訊詳情</title>
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    .card h2 {
+      margin-top: 0;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    /* 卡片內文區塊 */
+    .card-body {
+      padding: 10px;
+    }
+
+    .card-body h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .card-body a {
+      color: #007aff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img id="class-image" src="" alt="課程圖片" />
+    <h2 id="class-name">課程名稱</h2>
+    <p id="class-content">課程內容</p>
+    <a href="index.html">← 返回首頁</a>
+  </div>
+
+  <script>
+    // 取得網址中的 class 參數
+    const params = new URLSearchParams(window.location.search);
+    const classname = params.get('class');
+
+    // 預先定義課程資料（可改為 JSON 來源）
+    const classData = {
+      baby: {
+        name: "全美外師互動班",
+        content: "課程內容...",
+        image: "images/rosa2.jpg"
+      },
+      elementary: {
+        name: "正音語文素養班",
+        content: "課程內容...",
+        image: "images/13.png"
+      },
+      junior: {
+        name: "思達數學分級班",
+        content: "課程內容...",
+        image: "images/rosa10.jpg"
+      }
+    };
+
+    // 根據參數載入對應資料
+    if (classData[classname]) {
+      const info = classData[classname];
+      document.getElementById("class-name").textContent = info.name;
+      document.getElementById("class-content").textContent = "📍 " + info.content;
+      document.getElementById("class-image").src = info.image;
+      document.getElementById("class-image").alt = info.name;
+    } else {
+      document.querySelector(".card").innerHTML = `<p>找不到此課程資訊。</p><a href="index.html">返回首頁</a>`;
+    }
+  </script>
+
+</body>
+</html>
