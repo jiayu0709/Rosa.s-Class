@@ -4,58 +4,91 @@
 <head>
   <meta charset="UTF-8">
   <title>課程詳情</title>
+
+  <!-- 內部 CSS 樣式 -->
   <style>
-    body { font-family: sans-serif; padding: 20px; }
+    body {
+      font-family: sans-serif; /* 使用無襯線字體 */
+      padding: 20px;            /* 頁面內邊距 */
+    }
+
     .card {
-      display: block;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-      padding: 15px;
-      margin-bottom: 15px;
-      text-decoration: none;
-      color: #333;
+      display: block;                    /* 卡片為區塊元素 */
+      background: #fff;                  /* 白底 */
+      border-radius: 10px;               /* 圓角 */
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1); /* 淡淡陰影 */
+      padding: 15px;                     /* 內邊距 */
+      margin-bottom: 15px;               /* 與下方間距 */
+      text-decoration: none;             /* 去掉底線 */
+      color: #333;                       /* 文字顏色 */
     }
   </style>
 </head>
+
 <body>
+  <!-- 用來顯示目前的課程分類名稱（例如「國中部」） -->
   <h1 id="class-title">課程分類</h1>
+
+  <!-- 卡片列表將會用 JavaScript 動態加進來 -->
   <div id="card-list"></div>
 
   <script>
+    // ✅ 從網址中抓取參數，例如：detail.html?class=jrr
     const params = new URLSearchParams(window.location.search);
-    const courseClass = params.get('class');
+    const departmentin = params.get('class'); // 取得 class 參數值
+    const courseId = params.get('id'); 
 
+    // ✅ 類別對應中文名稱，用來顯示標題
     const classTitleMap = {
       baby: "國小部",
-      junior: "國小部",
-      senior: "國中部"
+      elementary: "國小部",
+      junior: "國中部"
     };
 
+    // ✅ 不同課程類別下的小卡片資料清單（可擴充）
     const cardData = {
       baby: [
+        { id: 1,
+          name: "全美外師互動班",
+          content: "課程內容...",
+          image: "images/rosa2.jpg"
+        },
+        { id: 2,
+          name: "全美外師互動班",
+          content: "課程內容...",
+          image: "images/rosa2.jpg"
+        }
+      ],
+      elementary: [
         { id: 1, title: "國小一年級數學" },
         { id: 2, title: "國小二年級自然" }
       ],
       junior: [
-        { id: 1, title: "國小一年級數學" },
-        { id: 2, title: "國小二年級自然" }
-      ],
-      senior: [
         { id: 1, title: "國中數學先修" },
         { id: 2, title: "國中英文寫作" }
       ]
     };
 
-    document.getElementById("class-title").textContent = classTitleMap[courseClass] || "課程分類";
+    // ✅ 根據 class 顯示對應中文標題，若無對應則顯示「課程分類」
+    document.getElementById("class-title").textContent =
+      classTitleMap[departmentin] || "課程分類";
+
+    // ✅ 產生對應的課程卡片（小卡）
     const list = document.getElementById("card-list");
-    (cardData[courseClass] || []).forEach(item => {
-      const a = document.createElement('a');
-      a.href = `lesson.html?class=${courseClass}&id=${item.id}`;
-      a.className = 'card';
-      a.textContent = item.title;
-      list.appendChild(a);
+    (cardData[departmentin] || []).forEach(item => {
+      const a = document.createElement('a'); // 建立超連結元素
+      a.href = `lesson.html?class=${departmentin}&id=${item.id}`; // 點擊導向單一課程頁
+      a.className = 'card';                 // 加上卡片樣式
+      a.textContent = item.title;           // 顯示卡片名稱
+      list.appendChild(a);                  // 加進畫面中
     });
+
+    if (classData[departmentin]) {
+      const info = classData[departmentin];
+      document.getElementById("class-name").textContent = info.name;
+      document.getElementById("class-content").textContent = "📍 " + info.content;
+      document.getElementById("class-image").src = info.image;
+      document.getElementById("class-image").alt = info.name;
   </script>
 </body>
 </html>
