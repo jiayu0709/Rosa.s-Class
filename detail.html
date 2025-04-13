@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>課程資訊詳情</title>
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    .card h2 {
+      margin-top: 0;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img id="branch-image" src="" alt="分校圖片" />
+    <h2 id="branch-name">分校名稱</h2>
+    <p id="branch-address">地址：</p>
+    <p id="branch-phone">電話：</p>
+    <a href="index.html">← 返回首頁</a>
+  </div>
+
+  <script>
+    // 取得網址中的 branch 參數
+    const params = new URLSearchParams(window.location.search);
+    const branch = params.get('branch');
+
+    // 預先定義分校資料（可改為 JSON 來源）
+    const branchData = {
+      baby: {
+        name: "樂莎旗艦校",
+        address: "高雄市楠梓區翠屏路117號",
+        phone: "07-3611977",
+        image: "images/rosa2.jpg"
+      },
+      elementary: {
+        name: "樂莎惠民校",
+        address: "高雄市楠梓區惠民路20號",
+        phone: "07-3619636",
+        image: "images/13.png"
+      },
+      junior: {
+        name: "樂莎高大校",
+        address: "高雄市楠梓區大學東路656號",
+        phone: "07-3651377",
+        image: "images/rosa10.jpg"
+      }
+    };
+
+    // 根據參數載入對應資料
+    if (branchData[branch]) {
+      const info = branchData[branch];
+      document.getElementById("branch-name").textContent = info.name;
+      document.getElementById("branch-address").textContent = "📍 " + info.address;
+      document.getElementById("branch-phone").textContent = "📞 " + info.phone;
+      document.getElementById("branch-image").src = info.image;
+      document.getElementById("branch-image").alt = info.name;
+    } else {
+      document.querySelector(".card").innerHTML = `<p>找不到此分校資訊。</p><a href="index.html">返回首頁</a>`;
+    }
+  </script>
+
+</body>
+</html>
