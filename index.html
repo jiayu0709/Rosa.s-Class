@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
+<!DOCTYPE html> <!-- 定義這是一份 HTML5 文件 -->
+<html lang="zh-Hant"> <!-- 設定網頁語言為繁體中文 -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>課程資訊 | Rosa School</title>
+  <meta charset="UTF-8" /> <!-- 設定字元編碼為 UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 設定行動裝置顯示效果 -->
+  <title>課程資訊 | Rosa School</title> <!-- 網頁標題 -->
 
-  <!-- 載入 LINE LIFF SDK，用來做登入與取得使用者資料 -->
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script> <!-- 載入 LINE LIFF SDK 用來支援 LIFF 功能 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> <!-- 載入 Google 字型 Noto Sans TC -->
 
-  <!-- 載入 Google 字型：Noto Sans TC（繁體中文） -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-
-  <!-- 頁面樣式 -->
   <style>
-    body {
+    body { /* 設定整體背景與字型樣式 */
       font-family: 'Noto Sans TC', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f2f2f2;
+      background-color: #f2f2f2; /* 淡灰色背景 */
     }
 
-    .container {
+    .container { /* 中央內容容器 */
       padding: 20px;
       max-width: 600px;
       margin: auto;
     }
 
-    .card {
+    .card { /* 最上層的主卡片樣式 */
       background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -34,43 +30,43 @@
       overflow: hidden;
     }
 
-    .card img {
+    .card img { /* 主卡片中的圖片設定 */
       width: 100%;
       height: auto;
       object-fit: cover;
     }
 
-    .card-body {
+    .card-body { /* 主卡片內文設定 */
       padding: 10px;
     }
 
-    .card-body h2 {
+    .card-body h2 { /* 主卡片標題 */
       margin: 0 0 10px;
       font-size: 22px;
     }
 
-    .card-body a {
+    .card-body a { /* 主卡片中的超連結樣式 */
       color: #007aff;
       text-decoration: none;
     }
 
-    .other-class h3 {
+    .other-class h3 { /* 課程資訊區塊的標題樣式 */
       margin-bottom: 15px;
     }
 
-    .class-list {
+    .class-list { /* 課程列表容器 */
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 8px; /* 調整間距為 8px */
     }
 
     .class-link {
       display: block;
-      text-decoration: none;
-      color: inherit;
+      text-decoration: none; /* 移除超連結底線 */
+      color: inherit; /* 繼承父層文字顏色 */
     }
 
-    .class-link.card {
+    .class-link.card { /* 每張課程卡片的樣式 */
       display: flex;
       gap: 15px;
       align-items: center;
@@ -78,28 +74,28 @@
       padding: 10px;
       border-radius: 10px;
       box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-      transition: box-shadow 0.3s, transform 0.2s;
+      transition: box-shadow 0.3s, transform 0.2s; /* 滑動效果 */
     }
 
-    .class-link.card:hover {
+    .class-link.card:hover { /* 滑鼠懸停的效果 */
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       transform: translateY(-2px);
     }
 
-    .class-link.card img {
+    .class-link.card img { /* 卡片中的圖片 */
       width: 100px;
       height: 100px;
       object-fit: cover;
       border-radius: 8px;
     }
 
-    .class-info h4 {
+    .class-info h4 { /* 卡片內的標題樣式 */
       margin: 0;
       font-size: 20px;
       font-weight: bold;
     }
 
-    .class-info p {
+    .class-info p { /* 卡片內的說明文字 */
       margin: 5px 0 0;
       font-size: 14px;
       color: #666;
@@ -108,21 +104,21 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="card">
-      <img src="images/Rosa_s_School_Logo.png" alt="logo圖片">
-      <div class="card-body">
+  <div class="container"> <!-- 包住所有內容的容器 -->
+    <div class="card"> <!-- 上方 Rosa School 主卡片 -->
+      <img src="images/Rosa_s_School_Logo.png" alt="logo圖片"> <!-- 顯示 logo 圖片 -->
+      <div class="card-body"> <!-- 卡片文字區塊 -->
         <h2>Rosa's School</h2>
-        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p>
-        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p>
+        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p> <!-- Facebook 連結 -->
+        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p> <!-- Instagram 連結 -->
       </div>
     </div>
 
-    <div class="other-class">
+    <div class="other-class"> <!-- 課程清單區塊 -->
       <h3>課程資訊</h3>
-      <div class="class-list">
+      <div class="class-list"> <!-- 課程清單容器 -->
 
-        <a href="detail.html?department=baby" class="class-link card">
+        <a href="detail.html?department=baby" class="class-link card"> <!-- 幼兒部卡片 -->
           <img src="images/rosa2.jpg" alt="幼兒部">
           <div class="class-info">
             <h4>幼兒部</h4>
@@ -130,7 +126,7 @@
           </div>
         </a>
 
-        <a href="detail.html?department=elementary" class="class-link card">
+        <a href="detail.html?department=elementary" class="class-link card"> <!-- 國小部卡片 -->
           <img src="images/rosa2.jpg" alt="國小部">
           <div class="class-info">
             <h4>國小部</h4>
@@ -138,7 +134,7 @@
           </div>
         </a>
 
-        <a href="detail.html?department=junior" class="class-link card">
+        <a href="detail.html?department=junior" class="class-link card"> <!-- 國中部卡片 -->
           <img src="images/rosa2.jpg" alt="國中部">
           <div class="class-info">
             <h4>國中部</h4>
@@ -151,16 +147,18 @@
   </div>
 
   <script>
+    // 清除網址中的 code 與 state 參數，避免快取錯誤
     if (window.location.search.includes("code=") || window.location.search.includes("state=")) {
       const cleanUrl = window.location.origin + window.location.pathname;
       window.location.replace(cleanUrl);
     }
 
+    // 初始化 LIFF 並抓取使用者資訊
     async function main() {
-      await liff.init({ liffId: "2007250477-8XjW2Vgx" });
+      await liff.init({ liffId: "2007250477-8XjW2Vgx" }); // 替換為你的 LIFF ID
 
-      if (liff.isLoggedIn()) {
-        const profile = await liff.getProfile();
+      if (liff.isLoggedIn()) { // 如果使用者已登入
+        const profile = await liff.getProfile(); // 抓取使用者資料
         document.getElementById("userInfo").innerHTML = `
           <p>歡迎，${profile.displayName}</p>
           <img src="${profile.pictureUrl}" width="80" style="border-radius: 50%" />
@@ -168,7 +166,7 @@
       }
     }
 
-    main();
+    main(); // 執行主函式
   </script>
 </body>
 </html>
