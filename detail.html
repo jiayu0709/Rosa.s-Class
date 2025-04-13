@@ -1,77 +1,61 @@
+<!-- detail.html：某課程的小卡片頁 -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>課程資訊詳情</title>
+  <meta charset="UTF-8">
+  <title>課程詳情</title>
   <style>
-    body {
-      font-family: 'Noto Sans TC', sans-serif;
-      padding: 20px;
-      background-color: #f9f9f9;
-    }
+    body { font-family: sans-serif; padding: 20px; }
     .card {
+      display: block;
       background: #fff;
       border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 1px 10px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: auto;
-    }
-    .card h2 {
-      margin-top: 0;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      padding: 15px;
       margin-bottom: 15px;
+      text-decoration: none;
+      color: #333;
     }
   </style>
 </head>
 <body>
-
-  <div class="card">
-    <img id="class-image" src="" alt="課程圖片" />
-    <h2 id="class-name">課程名稱</h2>
-    <p id="class-content">課程內容</p>
-    <a href="index.html">← 返回首頁</a>
-  </div>
+  <h1 id="class-title">課程分類</h1>
+  <div id="card-list"></div>
 
   <script>
-    // 取得網址中的 class 參數
     const params = new URLSearchParams(window.location.search);
-    const classname = params.get('class');
+    const courseClass = params.get('class');
 
-    // 預先定義課程資料（可改為 JSON 來源）
-    const classData = {
-      baby: {
-        name: "全美外師互動班",
-        content: "課程內容...",
-        image: "images/rosa2.jpg"
-      },
-      elementary: {
-        name: "正音語文素養班",
-        content: "課程內容...",
-        image: "images/13.png"
-      },
-      junior: {
-        name: "思達數學分級班",
-        content: "課程內容...",
-        image: "images/rosa10.jpg"
-      }
+    const classTitleMap = {
+      baby: "幼兒部",
+      junior: "國小部",
+      senior: "國中部"
     };
 
-    // 根據參數載入對應資料
-    if (classData[classname]) {
-      const info = classData[classname];
-      document.getElementById("class-name").textContent = info.name;
-      document.getElementById("class-content").textContent = "📍 " + info.content;
-      document.getElementById("class-image").src = info.image;
-      document.getElementById("class-image").alt = info.name;
-    } else {
-      document.querySelector(".card").innerHTML = `<p>找不到此課程資訊。</p><a href="index.html">返回首頁</a>`;
-    }
-  </script>
+    const cardData = {
+      baby: [
+        { id: 1, title: "全美外師互動班" },
+        { id: 2, title: "正音語文素養班" }
+      ],
+      junior: [
+        { id: 1, title: "國小一年級數學" },
+        { id: 2, title: "國小二年級自然" }
+      ],
+      senior: [
+        { id: 1, title: "國中數學先修" },
+        { id: 2, title: "國中英文寫作" }
+      ]
+    };
 
+    document.getElementById("class-title").textContent = classTitleMap[courseClass] || "課程分類";
+    const list = document.getElementById("card-list");
+    (cardData[courseClass] || []).forEach(item => {
+      const a = document.createElement('a');
+      a.href = `lesson.html?class=${courseClass}&id=${item.id}`;
+      a.className = 'card';
+      a.textContent = item.title;
+      list.appendChild(a);
+    });
+  </script>
 </body>
 </html>
