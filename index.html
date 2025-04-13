@@ -70,7 +70,7 @@
       color: inherit;
     }
 
-    .class-item {
+    .class-link.card {
       display: flex;
       gap: 15px;
       align-items: center;
@@ -78,24 +78,19 @@
       padding: 10px;
       border-radius: 10px;
       box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-      position: relative;
+      transition: box-shadow 0.3s, transform 0.2s;
     }
 
-    .class-item img {
+    .class-link.card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+    }
+
+    .class-link.card img {
       width: 100px;
       height: 100px;
       object-fit: cover;
       border-radius: 8px;
-    }
-
-    .class-name {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .small-text {
-      font-size: 14px;
-      color: #666;
     }
 
     .class-info h4 {
@@ -105,25 +100,9 @@
     }
 
     .class-info p {
-      margin: 1px 0 0;
-      color: #666;
-    }
-
-    .class-button {
-      margin-top: 10px;
-      display: inline-block;
-      padding: 6px 12px;
-      background-color: #007aff;
-      color: white;
-      border-radius: 6px;
+      margin: 5px 0 0;
       font-size: 14px;
-      text-align: center;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    .class-button:hover {
-      background-color: #005fcc;
+      color: #666;
     }
   </style>
 </head>
@@ -143,32 +122,29 @@
       <h3>課程資訊</h3>
       <div class="class-list">
 
-        <div class="class-item">
+        <a href="detail.html?department=baby" class="class-link card">
           <img src="images/rosa2.jpg" alt="幼兒部">
           <div class="class-info">
-            <h4 class="class-name">幼兒部</h4>
-            <p class="small-text">適合3-6歲幼兒，啟發學習興趣</p>
-            <a href="detail.html?department=baby" class="class-button">查看課程</a>
+            <h4>幼兒部</h4>
+            <p>適合3-6歲幼兒，啟發學習興趣</p>
           </div>
-        </div>
+        </a>
 
-        <div class="class-item">
+        <a href="detail.html?department=elementary" class="class-link card">
           <img src="images/rosa2.jpg" alt="國小部">
           <div class="class-info">
-            <h4 class="class-name">國小部</h4>
-            <p class="small-text">國語、數學、自然基礎打底</p>
-            <a href="detail.html?department=elementary" class="class-button">查看課程</a>
+            <h4>國小部</h4>
+            <p>國語、數學、自然基礎打底</p>
           </div>
-        </div>
+        </a>
 
-        <div class="class-item">
+        <a href="detail.html?department=junior" class="class-link card">
           <img src="images/rosa2.jpg" alt="國中部">
           <div class="class-info">
-            <h4 class="class-name">國中部</h4>
-            <p class="small-text">升學衝刺，考科重點強化</p>
-            <a href="detail.html?department=junior" class="class-button">查看課程</a>
+            <h4>國中部</h4>
+            <p>升學衝刺，考科重點強化</p>
           </div>
-        </div>
+        </a>
 
       </div>
     </div>
