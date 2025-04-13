@@ -13,34 +13,19 @@
 
   <!-- 頁面樣式 -->
   <style>
-    /* 整體背景與字型設定 */
     body {
       font-family: 'Noto Sans TC', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f2f2f2; /* 淡灰背景 */
+      background-color: #f2f2f2;
     }
 
-    /* 最外層容器，設定寬度與置中 */
     .container {
       padding: 20px;
       max-width: 600px;
       margin: auto;
     }
 
-    /* 頁面標題 */
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    /* 使用者資訊區塊（頭像與名稱） */
-    #userInfo {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    /* 主卡片（Logo 或總校） */
     .card {
       background-color: #fff;
       border-radius: 12px;
@@ -49,14 +34,12 @@
       overflow: hidden;
     }
 
-    /* 卡片內圖片設定 */
     .card img {
       width: 100%;
       height: auto;
       object-fit: cover;
     }
 
-    /* 卡片內文區塊 */
     .card-body {
       padding: 10px;
     }
@@ -71,19 +54,22 @@
       text-decoration: none;
     }
 
-    /* 課程資訊標題 */
-    .other-classes h3 {
+    .other-class h3 {
       margin-bottom: 15px;
     }
 
-    /* 課程列表 */
     .class-list {
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
 
-    /* 每個課程小卡片 */
+    .class-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
     .class-item {
       display: flex;
       gap: 15px;
@@ -92,9 +78,9 @@
       padding: 10px;
       border-radius: 10px;
       box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+      position: relative;
     }
 
-    /* 課程圖片 */
     .class-item img {
       width: 100px;
       height: 100px;
@@ -102,102 +88,111 @@
       border-radius: 8px;
     }
 
-    /* 課程文字區 */
     .class-name {
-      font-size: 20px;      /* 校名比較大 */
-      font-weight: bold;
-    } 
-
-    .small-text {
-      font-size: 14px;      /* 地址、電話較小 */
-      color: #666;          /* 顏色淡一點 */
-    }
-
-    .class-info h4 {
-      margin: 0;               /* 移除標題下方的預設間距 */
       font-size: 20px;
       font-weight: bold;
     }
-    
+
+    .small-text {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .class-info h4 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
     .class-info p {
       margin: 1px 0 0;
       color: #666;
+    }
+
+    .class-button {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #007aff;
+      color: white;
+      border-radius: 6px;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .class-button:hover {
+      background-color: #005fcc;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <!-- 標題 -->
-    <!--<h1>課程資訊</h1>-->
-
-    <!-- Rosa 主卡片（logo 與主校） -->
     <div class="card">
       <img src="images/Rosa_s_School_Logo.png" alt="logo圖片">
       <div class="card-body">
         <h2>Rosa's School</h2>
-        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a> 
-        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="blank">Instagram</a>
+        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p>
+        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p>
       </div>
     </div>
 
-    <!-- 課程清單區塊 -->
     <div class="other-class">
       <h3>課程資訊</h3>
       <div class="class-list">
 
-        <!-- 幼兒部 -->
-        <a href="detail.html?department=baby" class="class-link">
-            <div class="class-item">
-                <img src="images/rosa2.jpg" alt="幼兒部">
-                <div class="class-info">
-                    <h4 class="class-name">幼兒部</h4>
-                  </div>
-            </div>
-        </a>
+        <div class="class-item">
+          <img src="images/rosa2.jpg" alt="幼兒部">
+          <div class="class-info">
+            <h4 class="class-name">幼兒部</h4>
+            <p class="small-text">適合3-6歲幼兒，啟發學習興趣</p>
+            <a href="detail.html?department=baby" class="class-button">查看課程</a>
+          </div>
+        </div>
 
-        <!-- 國小部 -->
-        <a href="detail.html?department=elementary" class="class-link">
-            <div class="class-item">
-                <img src="images/rosa2.jpg" alt="國小部">
-                <div class="class-info">
-                    <h4 class="class-name">國小部</h4>
-                  </div>
-            </div>
-        </a>
+        <div class="class-item">
+          <img src="images/rosa2.jpg" alt="國小部">
+          <div class="class-info">
+            <h4 class="class-name">國小部</h4>
+            <p class="small-text">國語、數學、自然基礎打底</p>
+            <a href="detail.html?department=elementary" class="class-button">查看課程</a>
+          </div>
+        </div>
 
-        <!-- 國中部 -->
-        <a href="detail.html?department=junior" class="class-link">
-            <div class="class-item">
-                <img src="images/rosa2.jpg" alt="國中部">
-                <div class="class-info">
-                    <h4 class="class-name">國中部</h4>
-                  </div>
-            </div>
-        </a>
+        <div class="class-item">
+          <img src="images/rosa2.jpg" alt="國中部">
+          <div class="class-info">
+            <h4 class="class-name">國中部</h4>
+            <p class="small-text">升學衝刺，考科重點強化</p>
+            <a href="detail.html?department=junior" class="class-button">查看課程</a>
+          </div>
+        </div>
 
-  <!-- JS：LIFF 初始化 ＋ 自動清除登入參數 -->
+      </div>
+    </div>
+  </div>
+
   <script>
-    // 登入後網址可能會出現 ?code=xxx&state=yyy，要清除以避免快取錯誤
     if (window.location.search.includes("code=") || window.location.search.includes("state=")) {
       const cleanUrl = window.location.origin + window.location.pathname;
-      window.location.replace(cleanUrl); // 重新載入乾淨網址
+      window.location.replace(cleanUrl);
     }
 
-    // 主程式：初始化 LIFF，抓取使用者名稱與頭像
     async function main() {
-  await liff.init({ liffId: "2007250477-8XjW2Vgx" });
+      await liff.init({ liffId: "2007250477-8XjW2Vgx" });
 
-  if (liff.isLoggedIn()) {
-    const profile = await liff.getProfile();
-    document.getElementById("userInfo").innerHTML = `
-      <p>歡迎，${profile.displayName}</p>
-      <img src="${profile.pictureUrl}" width="80" style="border-radius: 50%" />
-    `;
-  }
-}
+      if (liff.isLoggedIn()) {
+        const profile = await liff.getProfile();
+        document.getElementById("userInfo").innerHTML = `
+          <p>歡迎，${profile.displayName}</p>
+          <img src="${profile.pictureUrl}" width="80" style="border-radius: 50%" />
+        `;
+      }
+    }
 
-main(); // 執行
+    main();
   </script>
 </body>
 </html>
