@@ -83,8 +83,8 @@
   <!-- JavaScript 動態載入課程資料 -->
   <script>
     const params = new URLSearchParams(window.location.search); // 取得網址參數
-    const dept = params.get('class'); // 抓取部門名稱（如 baby、junior）
-    const id = parseInt(params.get('id')); // 抓取課程 ID 並轉為整數
+    const dept = params.get('dept'); // 抓取部門名稱（如 baby、junior）
+    const id = params.get('id'); // 不轉整數，因為物件的 key 是字串
 
     // 模擬課程資料庫
     const courseData = {
