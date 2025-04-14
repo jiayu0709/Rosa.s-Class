@@ -12,13 +12,22 @@
       background-color: #f2f2f2; /* 背景為淡灰色 */
     }
 
-    .container {
+    .container { /* 頁面主容器 */
       padding: 20px; /* 內容邊距 */
       max-width: 600px; /* 最大寬度限制 */
       margin: auto; /* 水平置中 */
     }
 
-    .bigcard {
+    .other-class { /* 頁面各區標題 */
+      margin-top: 30px;        /* 與上方區塊留距離 */
+      padding: 15px 20px;      /* 內距 */
+      background-color: #ffffff; /* 背景白色 */
+      border-radius: 8px;      /* 圓角 */
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05); /* 輕微陰影 */
+    }
+
+
+    .bigcard { /* Rosa School 的主卡片 */
       background-color: #fff; /* 背景白色 */
       border-radius: 12px; /* 圓角邊框 */
       box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* 卡片陰影 */
@@ -28,13 +37,13 @@
       margin: 0 auto 30px auto; /* 上下間距與水平置中 */
     }
 
-    .bigcard img {
+    .bigcard img { /* 主卡片內照片 */
       width: 100%; /* 圖片寬度填滿 */
       height: auto; /* 自動高度比例 */
       object-fit: cover; /* 填滿容器且裁切 */
     }
 
-    .bigcard-body {
+    .bigcard-body { /* 主卡片內文字區塊 */
       padding: 10px; /* 內距 */
     }
 
@@ -48,7 +57,7 @@
       text-decoration: none; /* 移除底線 */
     }
 
-    .card {
+    .card { /* 各個區塊部門卡片 */
       display: flex; /* 使用 flex 排版 */
       gap: 15px; /* 圖片與內容間距 */
       align-items: center; /* 垂直置中 */
@@ -70,40 +79,40 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 增加陰影 */
     }
 
-    .card img {
+    .card img { /* 部門照片 */
       width: 100px; /* 固定寬度 */
       height: 100px; /* 固定高度 */
       object-fit: cover; /* 裁切滿版 */
       border-radius: 8px; /* 圓角 */
     }
 
-    .card-body {
+    .card-body { /* 包含課程標題（名稱）與說明文字 */
       padding: 10px; /* 內距 */
     }
 
-    .card-body h2 {
+    .card-body h2 { /* 在 .card-body 裡面的 h2 元素 */
       margin: 0 0 10px; /* 間距設定 */
       font-size: 22px; /* 字體大小 */
     }
 
-    .card-body a {
+    .card-body a { /* 在 .card-body 裡面的 <a> 連結 */
       color: #007aff; /* 連結色 */
       text-decoration: none; /* 去底線 */
     }
 
-    .card-list {
+    .card-list { /* 負責垂直排列所有卡片 */
       display: flex; /* 使用 flex 排版 */
       flex-direction: column; /* 垂直排列 */
       gap: 10px; /* 元素間距 */
     }
 
-    .card-title {
+    .card-title { /* 各個區塊部門卡片的標題 */
       font-size: 18px; /* 字體大小 */
       font-weight: bold; /* 加粗 */
       margin-bottom: 15px; /* 下方間距 */
     }
 
-    .card-content {
+    .card-content { /* 各個區塊部門卡片的內容 */
       font-size: 14px; /* 內容字體大小 */
       color: #666; /* 灰色文字 */
     }
