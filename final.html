@@ -27,20 +27,6 @@
       margin-bottom: 15px;
     }
 
-    /* 卡片內文區塊 */
-    .card-body {
-      padding: 10px;
-    }
-
-    .card-body h2 {
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
-
-    .card-body a {
-      color: #007aff;
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
@@ -77,15 +63,6 @@
     };
 
     // 根據參數載入對應資料
-    if (classData[classname]) {
-      const info = classData[classname];
-      document.getElementById("class-name").textContent = info.name;
-      document.getElementById("class-content").textContent = "📍 " + info.content;
-      document.getElementById("class-image").src = info.image;
-      document.getElementById("class-image").alt = info.name;
-    } else {
-      document.querySelector(".card").innerHTML = `<p>找不到此課程資訊。</p><a href="index.html">返回首頁</a>`;
-    }
   </script>
 
 </body>
