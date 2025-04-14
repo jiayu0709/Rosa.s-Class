@@ -1,157 +1,121 @@
 <!DOCTYPE html> <!-- 定義為 HTML5 文件 -->
-<html lang="zh-Hant"> <!-- 設定網頁語言為繁體中文 -->
+<html lang="zh-Hant"> <!-- 設定語言為繁體中文 -->
 <head>
   <meta charset="UTF-8" /> <!-- 設定字元編碼為 UTF-8 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 響應式設計 -->
-  <title>課程詳情 | Rosa School</title> <!-- 頁面標題 -->
+  <title>課程內容 | Rosa School</title> <!-- 頁面標題 -->
 
-  <!-- Google 字體 -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> <!-- 載入字型 -->
+  <!-- 載入 Google 字體：Noto Sans TC（繁體中文） -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> <!-- 字型 -->
 
   <!-- 頁面樣式 -->
   <style>
-    body { 
-      font-family: 'Noto Sans TC', sans-serif; 
-      margin: 0; padding: 0; 
-      background-color: #f2f2f2; 
-    } /* 全域字型與背景 */
+    body {
+      font-family: 'Noto Sans TC', sans-serif; /* 全站使用 Noto Sans TC 字型 */
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2; /* 背景色淡灰 */
+    }
 
-    .container { 
-      padding: 20px; max-width: 600px; margin: auto; 
-    } /* 中央區塊 */
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto; /* 水平置中 */
+    }
 
-    .other-class {
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
       width: 90%;
       max-width: 500px;
-      margin: 0 auto;
+      margin: 0 auto 20px auto;
     }
 
-    .other-class h3 {
-      margin-bottom: 15px;
+    .card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
 
-    .card { 
-      display: flex; 
-      gap: 15px; 
-      align-items: center; 
-      background: #fff;
-      padding: 10px; 
-      border-radius: 10px; 
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08); 
-      margin: 0 auto 20px auto; 
-      width: 90%; max-width: 500px; 
-      text-decoration: none; 
-      color: inherit; 
-      cursor: pointer; 
-      transition: transform 0.2s; 
-    } /* 卡片格式 */
+    .card-body {
+      padding: 15px;
+    }
 
-    .card:hover {
-      transform: translateY(-2px); 
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-    } /* 滑過卡片效果 */
+    .card-body h2 {
+      margin-top: 0;
+      font-size: 22px;
+    }
 
-    .card img { 
-      width: 100px; 
-      height: 100px; 
-      object-fit: cover; 
-      border-radius: 8px; 
-    } /* 卡片圖片 */
+    .card-body p {
+      margin: 6px 0;
+      color: #333;
+      font-size: 16px;
+    }
 
-    .card-body { 
-      padding: 10px; 
-    } /* 文字內距 */
-
-    .card-body h2 { 
-      margin: 0 0 10px; 
-      font-size: 22px; 
-    } /* 內部標題 */
-
-    .card-body a { 
-      color: #007aff; 
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #007aff;
       text-decoration: none;
-    } /* 內部連結樣式 */
-
-    .card-list { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 10px; 
-    } /* 卡片列表設定 */
-
-    .card-title { 
-      font-size: 18px; 
-      font-weight: bold; 
-      margin-bottom: 15px; 
-    } /* 標題文字 */
-
-    .card-content { 
-      font-size: 14px; 
-      color: #666; 
-    } /* 內文文字 */
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <div class="container"> <!-- 外部容器 -->
+  <div class="container"> <!-- 內容容器 -->
+
     <div class="card"> <!-- 主卡片 -->
-      <img src="images/Rosa_s_School_Logo.png" alt="logo圖片"> <!-- 校徽 -->
-      <div class="card-body"> <!-- 文字區域 -->
-        <h2>Rosa's School</h2> <!-- 校名 -->
-        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p> <!-- FB 連結 -->
-        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p> <!-- IG 連結 -->
+      <img id="course-image" src="" alt="課程圖片" /> <!-- 課程圖片（動態注入） -->
+      <div class="card-body">
+        <h2 id="course-title">課程名稱</h2> <!-- 課程名稱（動態注入） -->
+        <p id="course-teacher">授課老師</p> <!-- 老師名稱（動態注入） -->
+        <p id="course-time">上課時間</p> <!-- 上課時間（動態注入） -->
       </div>
     </div>
 
-    <div class="other-class"> <!-- 課程清單區 -->
-      <h3 id="class-title">課程分類</h3> <!-- 課程標題 -->
-      <div class="card-list" id="card-list"></div> <!-- 動態卡片清單 -->
-    </div>
+    <a href="index.html" class="back-link">← 返回首頁</a> <!-- 返回首頁按鈕 -->
+
   </div>
 
+  <!-- JavaScript 動態載入課程資料 -->
   <script>
     const params = new URLSearchParams(window.location.search); // 取得網址參數
-    const dept = params.get('dept'); // 抓取部門代碼
-    const course = params.get('course'); // 抓取部門代碼
+    const dept = params.get('class'); // 抓取部門名稱（如 baby、junior）
+    const id = parseInt(params.get('id')); // 抓取課程 ID 並轉為整數
 
-    const classTitleMap = { // 部門對應中文
-      baby: "幼兒部",
-      elementary: "國小部",
-      junior: "國中部"
-    };
-
+    // 模擬課程資料庫
     const courseData = {
       baby: {
-        1: { title: "國小一年級數學", teacher: "小美老師", time: "每週二 16:00", image: "images/junior1.jpg" },
-        2: { title: "國小二年級自然", teacher: "小志老師", time: "每週四 17:00", image: "images/junior2.jpg" }
+        1: { title: "全美外師互動班", teacher: "外師 John", time: "每週一 10:00", image: "images/rosa1.jpg" },
+        2: { title: "自然科學探索班", teacher: "小美老師", time: "每週三 14:00", image: "images/rosa2.jpg" }
+      },
+      elementary: {
+        1: { title: "國小數學邏輯班", teacher: "陳老師", time: "每週二 16:00", image: "images/ele1.jpg" },
+        2: { title: "英文會話初階班", teacher: "林老師", time: "每週五 17:00", image: "images/ele2.jpg" }
       },
       junior: {
-        1: { title: "國小一年級數學", teacher: "小美老師", time: "每週二 16:00", image: "images/junior1.jpg" },
-        2: { title: "國小二年級自然", teacher: "小志老師", time: "每週四 17:00", image: "images/junior2.jpg" }
-      },
-      senior: {
-        1: { title: "國中數學先修", teacher: "大明老師", time: "每週三 18:00", image: "images/senior1.jpg" },
-        2: { title: "國中英文寫作", teacher: "小艾老師", time: "每週五 17:30", image: "images/senior2.jpg" }
+        1: { title: "國中數學先修", teacher: "大明老師", time: "每週三 18:00", image: "images/junior1.jpg" },
+        2: { title: "國中英文寫作", teacher: "小艾老師", time: "每週五 17:30", image: "images/junior2.jpg" }
       }
     };
 
-    document.getElementById("class-title").textContent = classTitleMap[course] || "課程分類"; // 設定頁面標題
+    // 根據 dept 和 id 找出對應的課程資料
+    const course = courseData[dept]?.[id];
 
-    courseList.forEach(item => {
-      const a = document.createElement("a"); // 建立 <a> 元素
-      a.className = "card"; // 套用卡片樣式
-      a.href = `lesson_detail.html?class=${dept}&id=${item.id}`; // 點擊導向個別課程內容
-
-      // 卡片內 HTML
-      a.innerHTML = `
-        <img src="${item.image}" alt="${item.title}" />
-        <div class="card-body">
-          <div class="card-title">${item.title}</div>
-          <div class="card-content">老師：${item.teacher}</div>
-          <div class="card-content">時間：${item.time}</div>
-        </div>
-      `;
-
-      cardList.appendChild(a); // 加入清單容器中
-    });
+    // 如果課程存在就顯示
+    if (course) {
+      document.getElementById("course-title").textContent = course.title; // 課程名稱
+      document.getElementById("course-teacher").textContent = "授課老師：" + course.teacher; // 老師名稱
+      document.getElementById("course-time").textContent = "上課時間：" + course.time; // 上課時間
+      document.getElementById("course-image").src = course.image; // 圖片來源
+      document.getElementById("course-image").alt = course.title; // 圖片 alt 替代文字
+    } else {
+      document.querySelector(".card-body").innerHTML = "<h2>找不到課程資料</h2><p>請返回上一頁重新選擇。</p>"; // 錯誤訊息
+      document.getElementById("course-image").style.display = "none"; // 隱藏圖片
+    }
   </script>
 </body>
 </html>
