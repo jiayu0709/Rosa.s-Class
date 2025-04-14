@@ -135,6 +135,8 @@
 
     document.getElementById("class-title").textContent = classTitleMap[dept] || "課程分類"; // 設定頁面標題
 
+    console.log("目前部門代碼：", dept, "對應卡片數：", (cardData[dept] || []).length);
+
     const list = document.getElementById("card-list"); // 抓取清單容器
     (cardData[dept] || []).forEach(item => { // 根據部門動態建立卡片
       const a = document.createElement('a'); // 建立超連結元素
