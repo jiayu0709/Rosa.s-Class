@@ -26,13 +26,18 @@
 
 
     .bigcard { /* Rosa School 的主卡片 */
-      background-color: #fff; /* 背景白色 */
-      border-radius: 12px; /* 圓角邊框 */
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* 卡片陰影 */
-      overflow: hidden; /* 超出隱藏 */
-      width: 90%; /* 卡片寬度為 container 的 90% */
+      display: flex; /* 使用 flex 排版 */
+      gap: 15px; /* 圖片與內容間距 */
+      align-items: center; /* 垂直置中 */
+      background: #fff; /* 背景白色 */
+      padding: 10px; /* 內距 */
+      border-radius: 10px; /* 圓角 */
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08); /* 陰影 */
+      margin: 0 auto 20px auto; /* 下方間距與水平置中 */
+      width: 90%; /* 寬度限制 */
       max-width: 500px; /* 最大寬度限制 */
-      margin: 0 auto 30px auto; /* 上下間距與水平置中 */
+      text-decoration: none; /* 移除底線 */
+      color: inherit; /* 繼承文字色 */
     }
 
     .bigcard img { /* 主卡片內照片 */
