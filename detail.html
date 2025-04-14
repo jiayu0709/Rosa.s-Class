@@ -110,7 +110,7 @@
 
   <script>
     const params = new URLSearchParams(window.location.search); // 取得網址參數
-    const deptin = params.get('dept'); // 抓取部門代碼
+    const dept = params.get('dept'); // 抓取部門代碼
 
     const classTitleMap = { // 部門對應中文
       baby: "幼兒部",
@@ -133,9 +133,9 @@
       ]
     };
 
-    document.getElementById("class-title").textContent = classTitleMap[deptin] || "課程分類"; // 設定頁面標題
+    document.getElementById("class-title").textContent = classTitleMap[dept] || "課程分類"; // 設定頁面標題
 
-    const courseList = cardData[deptin] || [];
+    const courseList = cardData[dept] || [];
 
   const cardList = document.getElementById("card-list");
   courseList.forEach(item => {
