@@ -1,112 +1,121 @@
-<!DOCTYPE html> <!-- 定義這是一份 HTML5 文件 -->
-<html lang="zh-Hant"> <!-- 設定網頁語言為繁體中文 -->
+<!-- detail.html：某部門的卡片 -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" /> <!-- 設定字元編碼為 UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 設定行動裝置顯示效果 -->
-  <title>課程資訊 | Rosa School</title> <!-- 網頁標題 -->
+  <meta charset="UTF-8"> <!-- 設定網頁編碼為 UTF-8 -->
+  <title>課程詳情</title> <!-- 網頁標題顯示在瀏覽器分頁 -->
 
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script> <!-- 載入 LINE LIFF SDK 用來支援 LIFF 功能 -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> <!-- 載入 Google 字型 Noto Sans TC -->
-
+  <!-- 內部 CSS 樣式 -->
   <style>
-    body { /* 設定整體背景與字型樣式 */
-      font-family: 'Noto Sans TC', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2; /* 淡灰色背景 */
+    body {
+      font-family: 'Noto Sans TC', sans-serif; /* 使用 Google 字體 Noto Sans TC */
+      margin: 0; /* 去除預設外距 */
+      padding: 0; /* 去除預設內距 */
+      background-color: #f2f2f2; /* 設定背景為淡灰色 */
     }
 
-    .container { /* 中央內容容器 */
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
+    .container {
+      padding: 20px; /* 內邊距 */
+      max-width: 600px; /* 最大寬度 */
+      margin: auto; /* 置中顯示 */
     }
 
-    .card { /* 最上層的主卡片樣式 */
+    .bigcard { /* 最上層的主卡片樣式 */
       background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       overflow: hidden;
     }
 
-    .card img { /* 主卡片中的圖片設定 */
+    .bigcard img { /* 主卡片中的圖片設定 */
       width: 100%;
       height: auto;
       object-fit: cover;
     }
 
-    .card-body { /* 主卡片內文設定 */
+    .bigcard-body { /* 主卡片內文設定 */
       padding: 10px;
     }
 
-    .card-body h2 { /* 主卡片標題 */
+    .bigcard-body h2 { /* 主卡片標題 */
       margin: 0 0 10px;
       font-size: 22px;
     }
 
-    .card-body a { /* 主卡片中的超連結樣式 */
+    .bigcard-body a { /* 主卡片中的超連結樣式 */
       color: #007aff;
       text-decoration: none;
     }
 
-    .other-class h3 { /* 課程資訊區塊的標題樣式 */
-      margin-bottom: 15px;
-    }
 
-    .class-list { /* 課程列表容器 */
-      display: flex;
-      flex-direction: column;
-      gap: 10px; /* 調整間距為 8px */
-    }
-
-    .class-link {
-      display: block;
+    .card {
+      display: flex; /* 使用 flex 排版 */
+      gap: 15px; /* 圖片與文字區塊間距 */
+      align-items: center; /* 垂直置中 */
+      background: #fff; /* 白底 */
+      padding: 10px; /* 內距 */
+      border-radius: 10px; /* 圓角 */
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08); /* 陰影效果 */
+      margin: 0 auto 20px auto; /* 每張卡片之間間距 */
+      width: 90%; /* 寬度為容器的 90% */
+      max-width: 500px; /* 最大寬度限制 */
       text-decoration: none; /* 移除超連結底線 */
-      color: inherit; /* 繼承父層文字顏色 */
+      color: inherit; /* 保持預設文字顏色 */
+      cursor: pointer; /* 滑鼠移上時變成手指 */
+      transition: transform 0.2s; /* 滑過動畫 */
     }
 
-    .class-link.card { /* 每張課程卡片的樣式 */
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      background: #fff;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-      transition: box-shadow 0.3s, transform 0.2s; /* 滑動效果 */
+    .card:hover {
+      transform: translateY(-2px); /* 滑過時上移 */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 增加陰影效果 */
     }
 
-    .class-link.card:hover { /* 滑鼠懸停的效果 */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transform: translateY(-2px);
+    .card img {
+      width: 100px; /* 圖片寬度 */
+      height: 100px; /* 圖片高度 */
+      object-fit: cover; /* 圖片裁切方式 */
+      border-radius: 8px; /* 圓角 */
     }
 
-    .class-link.card img { /* 卡片中的圖片 */
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 8px;
+    .card-body {
+      padding: 10px; /* 內邊距 */
     }
 
-    .class-info h4 { /* 卡片內的標題樣式 */
-      margin: 0;
-      font-size: 20px;
-      font-weight: bold;
+    .card-body h2 {
+      margin: 0 0 10px; /* 上方 0 下方 10px 的外距 */
+      font-size: 22px; /* 字體大小 */
     }
 
-    .class-info p { /* 卡片內的說明文字 */
-      margin: 5px 0 0;
-      font-size: 14px;
-      color: #666;
+    .card-body a {
+      color: #007aff; /* 超連結文字顏色 */
+      text-decoration: none; /* 去除底線 */
     }
+
+    .card-list {
+      display: flex; /* 使用 flex 排版 */
+      flex-direction: column; /* 垂直排列 */
+      gap: 10px; /* 卡片間距 */
+    }
+
+    .card-title {
+      font-size: 18px; /* 標題大小 */
+      font-weight: bold; /* 加粗 */
+      margin-bottom: 15px; /* 下邊距 */
+    }
+
+    .card-content {
+      font-size: 14px; /* 文字大小 */
+      color: #666; /* 文字顏色 */
+    }
+
   </style>
 </head>
 
 <body>
   <div class="container"> <!-- 包住所有內容的容器 -->
-    <div class="card"> <!-- 上方 Rosa School 主卡片 -->
+    <div class="bigcard"> <!-- 上方 Rosa School 主卡片 -->
       <img src="images/Rosa_s_School_Logo.png" alt="logo圖片"> <!-- 顯示 logo 圖片 -->
-      <div class="card-body"> <!-- 卡片文字區塊 -->
+      <div class="bigcard-body"> <!-- 卡片文字區塊 -->
         <h2>Rosa's School</h2>
         <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p> <!-- Facebook 連結 -->
         <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p> <!-- Instagram 連結 -->
