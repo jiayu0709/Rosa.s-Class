@@ -135,23 +135,22 @@
 
     document.getElementById("class-title").textContent = classTitleMap[deptin] || "課程分類"; // 設定頁面標題
 
-    courseList.forEach(item => {
-      const a = document.createElement("a"); // 建立 <a> 元素
-      a.className = "card"; // 套用卡片樣式
-      a.href = `lesson_detail.html?class=${deptin}&id=${item.id}`; // 點擊導向個別課程內容
+    const courseList = cardData[deptin] || [];
 
-      // 卡片內 HTML
+  const cardList = document.getElementById("card-list");
+  courseList.forEach(item => {
+    const a = document.createElement("a");
+      a.className = "card";
+      a.href = `lesson_detail.html?class=${deptin}&id=${item.id}`;
       a.innerHTML = `
-        <img src="${item.image}" alt="${item.title}" />
+        <img src="${item.image}" alt="${item.name}" />
         <div class="card-body">
-          <div class="card-title">${item.title}</div>
-          <div class="card-content">老師：${item.teacher}</div>
-          <div class="card-content">時間：${item.time}</div>
-        </div>
-      `;
-
-      cardList.appendChild(a); // 加入清單容器中
-    });
+        <div class="card-title">${item.name}</div>
+        <div class="card-content">${item.content}</div>
+      </div>
+    `;
+    cardList.appendChild(a);
+  });
 
   </script>
 </body>
