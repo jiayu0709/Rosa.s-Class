@@ -141,7 +141,7 @@
   courseList.forEach(item => {
     const a = document.createElement("a");
       a.className = "card";
-      a.href = `lesson_detail.html?class=${dept}&id=${item.id}`;
+      a.href = `final.html?dept=${dept}&id=${item.id}`;
       a.innerHTML = `
         <img src="${item.image}" alt="${item.name}" />
         <div class="card-body">
