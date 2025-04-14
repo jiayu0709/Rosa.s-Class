@@ -110,7 +110,7 @@
 
   <script>
     const params = new URLSearchParams(window.location.search); // 取得網址參數
-    const departmentin = params.get('department'); // 抓取部門代碼
+    const dept = params.get('dept'); // 抓取部門代碼
 
     const classTitleMap = { // 部門對應中文
       baby: "幼兒部",
@@ -133,12 +133,12 @@
       ]
     };
 
-    document.getElementById("class-title").textContent = classTitleMap[departmentin] || "課程分類"; // 設定頁面標題
+    document.getElementById("class-title").textContent = classTitleMap[dept] || "課程分類"; // 設定頁面標題
 
     const list = document.getElementById("card-list"); // 抓取清單容器
-    (cardData[departmentin] || []).forEach(item => { // 根據部門動態建立卡片
+    (cardData[dept] || []).forEach(item => { // 根據部門動態建立卡片
       const a = document.createElement('a'); // 建立超連結元素
-      a.href = `lesson.html?class=${departmentin}&id=${item.id}`; // 點擊跳轉課程內容頁
+      a.href = `lesson.html?class=${dept}&id=${item.id}`; // 點擊跳轉課程內容頁
       a.className = 'card'; // 加入樣式
       a.innerHTML = `
         <img src="${item.image}" alt="${item.name}" />
