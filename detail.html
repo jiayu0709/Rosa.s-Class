@@ -135,22 +135,24 @@
 
     document.getElementById("class-title").textContent = classTitleMap[dept] || "課程分類"; // 設定頁面標題
 
-    console.log("目前部門代碼：", dept, "對應卡片數：", (cardData[dept] || []).length);
+    courseList.forEach(item => {
+      const a = document.createElement("a"); // 建立 <a> 元素
+      a.className = "card"; // 套用卡片樣式
+      a.href = `lesson_detail.html?class=${dept}&id=${item.id}`; // 點擊導向個別課程內容
 
-    const list = document.getElementById("card-list"); // 抓取清單容器
-    (cardData[dept] || []).forEach(item => { // 根據部門動態建立卡片
-      const a = document.createElement('a'); // 建立超連結元素
-      a.href = `lesson.html?class=${dept}&id=${item.id}`; // 點擊跳轉課程內容頁
-      a.className = 'card'; // 加入樣式
+      // 卡片內 HTML
       a.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" />
+        <img src="${item.image}" alt="${item.title}" />
         <div class="card-body">
-          <div class="card-title">${item.name}</div>
-          <div class="card-content">${item.content}</div>
+          <div class="card-title">${item.title}</div>
+          <div class="card-content">老師：${item.teacher}</div>
+          <div class="card-content">時間：${item.time}</div>
         </div>
-      `; // 卡片內容
-      list.appendChild(a); // 加入到頁面中
+      `;
+
+      cardList.appendChild(a); // 加入清單容器中
     });
+    
   </script>
 </body>
 </html>
