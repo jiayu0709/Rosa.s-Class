@@ -43,13 +43,26 @@
       margin-top: 10px;
     }
 
-    .back {
-      margin-top: 20px;
-      display: block;        /* 讓它成為區塊元素 */
-      text-align: center;    /* 水平置中 */
-      color: #007aff;
+    .back-button {
+      display: inline-block;
+      margin: 30px auto 0;
+      padding: 12px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #444;
+      background-color: #fff;
+      border: 2px solid #888;
+      border-radius: 999px;
       text-decoration: none;
-      font-size: 16px;
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .back-button:hover {
+      background-color: #f9f9f9;
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
     }
   </style>
 </head>
@@ -58,7 +71,7 @@
     <div class="card" id="course-detail">
       <!-- 動態填入課程資訊 -->
     </div>
-    <a href="javascript:history.back()" class="back">← 返回上一頁</a>
+    <a href="javascript:history.back()" class="back">返回上一頁</a>
   </div>
 
   <script>
