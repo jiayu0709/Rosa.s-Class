@@ -157,11 +157,13 @@
     const courseList = {
     baby: [
       {
+        id: 1,
         name: "全美外師互動班",
         descri: "全美語環境，外師互動學習",
         image: "images/rosa2.jpg"
       },
       {
+        id: 2,
         name: "正音語文素養",
         descri: "注音符號教學與識字訓練",
         image: "images/rosa2.jpg"
@@ -169,11 +171,13 @@
     ],
     elementary: [
       {
+        id: 3,
         name: "思達數學",
         descri: "以遊戲方式訓練數感",
         image: "images/rosa2.jpg"
       },
       {
+        id: 4,
         name: "作文閱讀班",
         descri: "提升閱讀理解與寫作技巧",
         image: "images/rosa2.jpg"
@@ -181,11 +185,13 @@
     ],
     junior: [
       {
+        id: 5,
         name: "國中數學先修",
         descri: "提前進入會考內容",
         image: "images/rosa2.jpg"
       },
       {
+        id: 6,
         name: "國中英文寫作",
         descri: "強化閱讀與寫作能力",
         image: "images/rosa2.jpg"
@@ -204,7 +210,7 @@
     selectedCourses.forEach(course => {
       const a = document.createElement("a");
       a.className = "card";
-      a.href = `detail.html?course=${course.name}`; 
+      a.href = `final.html?dpt=${dpt}&id=${course.id}`;
       a.innerHTML = `
         <img src="${course.image}" alt="課程課程圖片" />
         <div class="card-body">

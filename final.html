@@ -1,120 +1,127 @@
-<!DOCTYPE html> <!-- 定義為 HTML5 文件 -->
-<html lang="zh-Hant"> <!-- 設定語言為繁體中文 -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" /> <!-- 設定字元編碼為 UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 響應式設計 -->
-  <title>課程內容 | Rosa School</title> <!-- 頁面標題 -->
-
-  <!-- 載入 Google 字體：Noto Sans TC（繁體中文） -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> <!-- 字型 -->
-
-  <!-- 頁面樣式 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>課程詳細資訊</title>
   <style>
     body {
-      font-family: 'Noto Sans TC', sans-serif; /* 全站使用 Noto Sans TC 字型 */
+      font-family: 'Noto Sans TC', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f2f2f2; /* 背景色淡灰 */
+      background-color: #f2f2f2;
     }
 
     .container {
-      padding: 20px;
       max-width: 600px;
-      margin: auto; /* 水平置中 */
+      margin: auto;
+      padding: 20px;
     }
 
     .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      width: 90%;
-      max-width: 500px;
-      margin: 0 auto 20px auto;
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .card img {
       width: 100%;
-      height: auto;
+      max-height: 250px;
       object-fit: cover;
+      border-radius: 8px;
     }
 
-    .card-body {
-      padding: 15px;
+    .card h2 {
+      margin-top: 15px;
+      font-size: 24px;
     }
 
-    .card-body h2 {
-      margin-top: 0;
-      font-size: 22px;
-    }
-
-    .card-body p {
-      margin: 6px 0;
-      color: #333;
+    .card p {
       font-size: 16px;
+      color: #555;
+      margin-top: 10px;
     }
 
-    .back-link {
-      display: block;
-      text-align: center;
+    .back {
       margin-top: 20px;
+      display: inline-block;
       color: #007aff;
       text-decoration: none;
-      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="container"> <!-- 內容容器 -->
-
-    <div class="card"> <!-- 主卡片 -->
-      <img id="course-image" src="" alt="課程圖片" /> <!-- 課程圖片（動態注入） -->
-      <div class="card-body">
-        <h2 id="course-title">課程名稱</h2> <!-- 課程名稱（動態注入） -->
-        <p id="course-teacher">授課老師</p> <!-- 老師名稱（動態注入） -->
-        <p id="course-time">上課時間</p> <!-- 上課時間（動態注入） -->
-      </div>
+  <div class="container">
+    <div class="card" id="course-detail">
+      <!-- 動態填入課程資訊 -->
     </div>
-
-    <a href="index.html" class="back-link">← 返回首頁</a> <!-- 返回首頁按鈕 -->
-
+    <a href="javascript:history.back()" class="back">← 返回上一頁</a>
   </div>
 
-  <!-- JavaScript 動態載入課程資料 -->
   <script>
-    const params = new URLSearchParams(window.location.search); // 取得網址參數
-    const dept = params.get('dept'); // 抓取部門名稱（如 baby、junior）
-    const id = params.get('id'); // 不轉整數，因為物件的 key 是字串
+    const params = new URLSearchParams(window.location.search);
+    const dpt = params.get("dpt");
+    const courseName = params.get("course");
+    const id = parseInt(params.get("id"));
 
-    // 模擬課程資料庫
-    const courseData = {
-      baby: {
-        1: { title: "全美外師互動班", teacher: "外師 John", time: "每週一 10:00", image: "images/rosa1.jpg" },
-        2: { title: "自然科學探索班", teacher: "小美老師", time: "每週三 14:00", image: "images/rosa2.jpg" }
-      },
-      elementary: {
-        1: { title: "國小數學邏輯班", teacher: "陳老師", time: "每週二 16:00", image: "images/ele1.jpg" },
-        2: { title: "英文會話初階班", teacher: "林老師", time: "每週五 17:00", image: "images/ele2.jpg" }
-      },
-      junior: {
-        1: { title: "國中數學先修", teacher: "大明老師", time: "每週三 18:00", image: "images/junior1.jpg" },
-        2: { title: "國中英文寫作", teacher: "小艾老師", time: "每週五 17:30", image: "images/junior2.jpg" }
-      }
+    const courseList = {
+      baby: [
+        {
+          id: 1,
+          name: "全美外師互動班",
+          image: "images/rosa2.jpg",
+          descri: "全美語環境，外師互動學習"
+        },
+        {
+          id: 2,
+          name: "正音語文素養",
+          image: "images/rosa2.jpg",
+          descri: "注音符號教學與識字訓練"
+        }
+      ],
+      elementary: [
+        {
+          id: 3,
+          name: "思達數學",
+          image: "images/rosa2.jpg",
+          descri: "以遊戲方式訓練數感"
+        },
+        {
+          id: 4,
+          name: "作文閱讀班",
+          image: "images/rosa2.jpg",
+          descri: "提升閱讀理解與寫作技巧"
+        }
+      ],
+      junior: [
+        {
+          id: 5,
+          name: "國中數學先修",
+          image: "images/rosa2.jpg",
+          descri: "提前進入會考內容"
+        },
+        {
+          id: 6,
+          name: "國中英文寫作",
+          image: "images/rosa2.jpg",
+          descri: "強化閱讀與寫作能力"
+        }
+      ]
     };
 
-    // 根據 dept 和 id 找出對應的課程資料
-    const course = courseData[dept]?.[id];
+    const selectedCourse = (courseMap[dpt] || []).find(c => c.id === id);
 
-    // 如果課程存在就顯示
-    if (course) {
-      document.getElementById("course-title").textContent = course.title; // 課程名稱
-      document.getElementById("course-teacher").textContent = "授課老師：" + course.teacher; // 老師名稱
-      document.getElementById("course-time").textContent = "上課時間：" + course.time; // 上課時間
-      document.getElementById("course-image").src = course.image; // 圖片來源
-      document.getElementById("course-image").alt = course.title; // 圖片 alt 替代文字
+    const detailBox = document.getElementById("course-detail");
+
+    if (selectedCourse) {
+      detailBox.innerHTML = `
+        <img src="${selectedCourse.image}" alt="${selectedCourse.name}" />
+        <h2>${selectedCourse.name}</h2>
+        <p>${selectedCourse.descri}</p>
+      `;
     } else {
-      document.querySelector(".card-body").innerHTML = "<h2>找不到課程資料</h2><p>請返回上一頁重新選擇。</p>"; // 錯誤訊息
-      document.getElementById("course-image").style.display = "none"; // 隱藏圖片
+      detailBox.innerHTML = `<p>查無此課程。</p>`;
     }
   </script>
 </body>
