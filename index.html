@@ -138,54 +138,47 @@
     </div>
 
     <div class="other-class">
-      <h3>分校資訊</h3>
+      <h3>課程資訊</h3>
     </div>
-    <div class="card-list" id="branch-list"></div>
+    <div class="card-list" id="dpt-list"></div>
   </div>
 
   <script>
-    const branchList = [
+    const dptList = [
       {
-        name: "樂莎旗艦校",
+        name: "幼兒部",
         address: "高雄市楠梓區翠屏路117號",
         mapLink: "https://www.google.com/maps?q=高雄市楠梓區翠屏路117號",
         phone: "07-3611977",
         image: "images/rosa2.jpg"
       },
       {
-        name: "樂莎高大校",
+        name: "國小部",
         address: "高雄市楠梓區大學東路656號",
         mapLink: "https://www.google.com/maps?q=高雄市楠梓區大學東路656號",
         phone: "07-3651377",
         image: "images/rosa2.jpg"
       },
       {
-        name: "樂莎翠屏校",
+        name: "國高中部",
         address: "高雄市楠梓區翠屏路123號2樓",
         mapLink: "https://www.google.com/maps?q=高雄市楠梓區翠屏路123號2樓",
         phone: "07-3659509",
         image: "images/rosa2.jpg"
       },
-      {
-        name: "蘿莎惠民校",
-        address: "高雄市楠梓區惠民路20號",
-        mapLink: "https://www.google.com/maps?q=高雄市楠梓區惠民路20號",
-        phone: "07-3619636",
-        image: "images/rosa2.jpg"
-      }
     ];
 
-    const list = document.getElementById("branch-list");
+    const list = document.getElementById("dpt-list");
 
-    branchList.forEach(branch => {
+    dptList.forEach(dpt => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-        <img src="${branch.image}" alt="分校圖片" />
+        <img src="${dpt.image}" alt="分校圖片" />
         <div class="card-body">
-          <div class="card-title">${branch.name}</div>
-          <div class="card-content">地址：<a href="${branch.mapLink}" target="_blank">${branch.address}</a></div>
-          <div class="card-content">電話：<a href="tel:${branch.phone}">${branch.phone}</a></div>
+          <div class="card-title">${dpt.name}</div>
+          <div class="card-content">地址：<a href="${dpt.mapLink}" target="_blank">${dpt.address}</a></div>
+          <div class="card-content">電話：<a href="tel:${dpt.phone}">${dpt.phone}</a></div>
         </div>
       `;
       list.appendChild(card);
