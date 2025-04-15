@@ -171,17 +171,17 @@
       },
     ];
     
-    const list = document.getElementById("dpt-list");
+    const list = document.getElementById("course-list");
 
-    dptList.forEach(dpt => {
+    courseList.forEach(course => {
       const a = document.createElement("a");
       a.className = "card";
-      a.href = `detail.html?dept=${dpt.name}`; 
+      a.href = `detail.html?course=${course.name}`; 
       a.innerHTML = `
-        <img src="${dpt.image}" alt="部門圖片" />
+        <img src="${course.image}" alt="課程課程圖片" />
         <div class="card-body">
-          <div class="card-title">${dpt.name}</div>
-          <div class="card-content">${dpt.descri}</div>
+          <div class="card-title">${course.name}</div>
+          <div class="card-content">${course.descri}</div>
         </div>
       `;
       list.appendChild(a);
