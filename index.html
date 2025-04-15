@@ -147,23 +147,17 @@
     const dptList = [
       {
         name: "幼兒部",
-        address: "高雄市楠梓區翠屏路117號",
-        mapLink: "https://www.google.com/maps?q=高雄市楠梓區翠屏路117號",
-        phone: "07-3611977",
+        descri: "適合3-6歲小朋友",
         image: "images/rosa2.jpg"
       },
       {
         name: "國小部",
-        address: "高雄市楠梓區大學東路656號",
-        mapLink: "https://www.google.com/maps?q=高雄市楠梓區大學東路656號",
-        phone: "07-3651377",
+        descri: "豐富課程",
         image: "images/rosa2.jpg"
       },
       {
         name: "國高中部",
-        address: "高雄市楠梓區翠屏路123號2樓",
-        mapLink: "https://www.google.com/maps?q=高雄市楠梓區翠屏路123號2樓",
-        phone: "07-3659509",
+        descri: "各科加強",
         image: "images/rosa2.jpg"
       },
     ];
@@ -174,10 +168,10 @@
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-        <img src="${dpt.image}" alt="分校圖片" />
+        <img src="${dpt.image}" alt="部門圖片" />
         <div class="card-body">
           <div class="card-title">${dpt.name}</div>
-          <div class="card-content">地址：<a href="${dpt.mapLink}" target="_blank">${dpt.address}</a></div>
+          <div class="card-content">${descri}</div>
           <div class="card-content">電話：<a href="tel:${dpt.phone}">${dpt.phone}</a></div>
         </div>
       `;
