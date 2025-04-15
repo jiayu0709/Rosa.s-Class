@@ -154,25 +154,52 @@
       junior: "國中部"
     };
 
-    const courseList = [
+    const courseList = {
+    baby: [
       {
         name: "全美外師互動班",
-        descri: "課程簡介...",
+        descri: "全美語環境，外師互動學習",
         image: "images/rosa2.jpg"
       },
       {
         name: "正音語文素養",
-        descri: "課程簡介...",
+        descri: "注音符號教學與識字訓練",
+        image: "images/rosa2.jpg"
+      }
+    ],
+    elementary: [
+      {
+        name: "思達數學",
+        descri: "以遊戲方式訓練數感",
         image: "images/rosa2.jpg"
       },
       {
-        name: "思達數學",
-        descri: "課程簡介...",
+        name: "作文閱讀班",
+        descri: "提升閱讀理解與寫作技巧",
+        image: "images/rosa2.jpg"
+      }
+    ],
+    junior: [
+      {
+        name: "國中數學先修",
+        descri: "提前進入會考內容",
         image: "images/rosa2.jpg"
       },
-    ];
-    
+      {
+        name: "國中英文寫作",
+        descri: "強化閱讀與寫作能力",
+        image: "images/rosa2.jpg"
+      }
+    ]
+  };
+  
+    // 設定標題文字
+    document.querySelector(".other-class h3").textContent = classTitleMap[dpt] || "課程資訊";
+
+
+    // 顯示課程卡片
     const list = document.getElementById("course-list");
+    const selectedCourses = courseMap[dpt] || [];
 
     courseList.forEach(course => {
       const a = document.createElement("a");

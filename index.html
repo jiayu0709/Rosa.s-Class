@@ -145,21 +145,24 @@
 
   <script>
     const dptList = [
-      {
-        name: "幼兒部",
-        descri: "適合3-6歲小朋友",
-        image: "images/rosa2.jpg"
-      },
-      {
-        name: "國小部",
-        descri: "豐富課程",
-        image: "images/rosa2.jpg"
-      },
-      {
-        name: "國高中部",
-        descri: "各科加強",
-        image: "images/rosa2.jpg"
-      },
+    {
+      code: "baby",
+      name: "幼兒部",
+      descri: "適合3-6歲小朋友",
+      image: "images/rosa2.jpg"
+    },
+    {
+      code: "elementary",
+      name: "國小部",
+      descri: "豐富課程",
+      image: "images/rosa2.jpg"
+    },
+    {
+      code: "junior",
+      name: "國高中部",
+      descri: "各科加強",
+      image: "images/rosa2.jpg"
+    }
     ];
 
     const list = document.getElementById("dpt-list");
@@ -167,7 +170,7 @@
     dptList.forEach(dpt => {
       const a = document.createElement("a");
       a.className = "card";
-      a.href = `detail.html?dept=${dpt.name}`; 
+      a.href = `detail.html?dpt=${dpt.code}`; 
       a.innerHTML = `
         <img src="${dpt.image}" alt="部門圖片" />
         <div class="card-body">
