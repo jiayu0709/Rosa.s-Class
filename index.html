@@ -165,8 +165,9 @@
     const list = document.getElementById("dpt-list");
 
     dptList.forEach(dpt => {
-      const card = document.createElement("div");
-      card.className = "card";
+      const a = document.createElement("a");
+      a.className = "card";
+      a.href = `detail.html?dept=${dpt.name}`; 
       card.innerHTML = `
         <img src="${dpt.image}" alt="部門圖片" />
         <div class="card-body">
