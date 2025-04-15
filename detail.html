@@ -192,7 +192,7 @@
       }
     ]
   };
-  
+
     // 設定標題文字
     document.querySelector(".other-class h3").textContent = classTitleMap[dpt] || "課程資訊";
 
@@ -201,7 +201,7 @@
     const list = document.getElementById("course-list");
     const selectedCourses = courseMap[dpt] || [];
 
-    courseList.forEach(course => {
+    selectedCourses.forEach(course => {
       const a = document.createElement("a");
       a.className = "card";
       a.href = `detail.html?course=${course.name}`; 
