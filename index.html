@@ -1,22 +1,21 @@
-<!DOCTYPE html> <!-- 定義這是一份 HTML5 文件 -->
-<html lang="zh-Hant"> <!-- 設定語言為繁體中文 -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8"> <!-- 設定編碼為 UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 行動裝置友善 -->
-  <title>課程詳情</title> <!-- 頁籤標題 -->
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>課程詳情</title>
   <style>
     body {
-      font-family: 'Noto Sans TC', sans-serif; /* 使用 Noto Sans TC 字體 */
-      margin: 0; /* 移除預設外距 */
-      padding: 0; /* 移除預設內距 */
-      background-color: #f2f2f2; /* 背景為淡灰色 */
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
     }
 
-    .container { /* 頁面主容器 */
-      padding: 20px; /* 內容邊距 */
-      max-width: 600px; /* 最大寬度限制 */
-      margin: auto; /* 水平置中 */
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
     }
 
     .other-class {
@@ -29,146 +28,185 @@
       margin-bottom: 15px;
     }
 
-    .bigcard { /* Rosa School 的主卡片 */
-      display: flex; /* 使用 flex 排版 */
-      gap: 15px; /* 圖片與內容間距 */
-      align-items: center; /* 垂直置中 */
-      background: #fff; /* 背景白色 */
-      padding: 10px; /* 內距 */
-      border-radius: 10px; /* 圓角 */
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08); /* 陰影 */
-      margin: 0 auto 20px auto; /* 下方間距與水平置中 */
-      width: 90%; /* 寬度限制 */
-      max-width: 500px; /* 最大寬度限制 */
-      text-decoration: none; /* 移除底線 */
-      color: inherit; /* 繼承文字色 */
+    .bigcard {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+      margin: 0 auto 20px auto;
+      width: 90%;
+      max-width: 500px;
+      text-decoration: none;
+      color: inherit;
     }
 
-    .bigcard img { /* 主卡片內照片 */
-      width: 100px; /* 固定寬度 */
-      height: 100px; /* 固定高度 */
-      object-fit: cover; /* 裁切滿版 */
-      border-radius: 8px; /* 圓角 */
+    .bigcard img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
-    .bigcard-body { /* 主卡片內文字區塊 */
-      padding: 10px; /* 內距 */
+    .bigcard-body {
+      padding: 10px;
     }
 
     .bigcard-body h2 {
-      margin: 0 0 10px; /* 標題與下方間距 */
-      font-size: 22px; /* 字體大小 */
+      margin: 0 0 10px;
+      font-size: 22px;
     }
 
     .bigcard-body a {
-      color: #007aff; /* 連結顏色 */
-      text-decoration: none; /* 移除底線 */
+      color: #007aff;
+      text-decoration: none;
     }
 
-    .card { /* 各個區塊部門卡片 */
-      display: flex; /* 使用 flex 排版 */
-      gap: 15px; /* 圖片與內容間距 */
-      align-items: center; /* 垂直置中 */
-      background: #fff; /* 背景白色 */
-      padding: 10px; /* 內距 */
-      border-radius: 10px; /* 圓角 */
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08); /* 陰影 */
-      margin: 0 auto 20px auto; /* 下方間距與水平置中 */
-      width: 100%; /* 寬度限制 */
+    .card {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08); 
+      margin: 0 auto 20px auto;
+      width: 90%; /* 寬度限制 */
       max-width: 500px; /* 最大寬度限制 */
-      text-decoration: none; /* 移除底線 */
-      color: inherit; /* 繼承文字色 */
-      cursor: pointer; /* 滑鼠變手指 */
-      transition: transform 0.2s; /* 動畫效果 */
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-2px); /* 滑過時上移 */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 增加陰影 */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .card img { /* 部門照片 */
-      width: 100px; /* 固定寬度 */
-      height: 100px; /* 固定高度 */
-      object-fit: cover; /* 裁切滿版 */
-      border-radius: 8px; /* 圓角 */
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
-    .card-body { /* 包含課程標題（名稱）與說明文字 */
-      padding: 10px; /* 內距 */
-      flex: 1;
+    .card-body {
+      padding: 10px;
     }
 
-    .card-body h2 { /* 在 .card-body 裡面的 h2 元素 */
-      margin: 0 0 10px; /* 間距設定 */
-      font-size: 22px; /* 字體大小 */
+    .card-body h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
     }
 
-    .card-body a { /* 在 .card-body 裡面的 <a> 連結 */
-      color: #007aff; /* 連結色 */
-      text-decoration: none; /* 去底線 */
+    .card-body a {
+      color: #007aff;
+      text-decoration: none;
     }
 
-    .card-list { /* 負責垂直排列所有卡片 */
-      display: flex; /* 使用 flex 排版 */
-      flex-direction: column; /* 垂直排列 */
-      gap: 10px; /* 元素間距 */
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .card-title { /* 各個區塊部門卡片的標題 */
-      font-size: 18px; /* 字體大小 */
-      font-weight: bold; /* 加粗 */
-      margin-bottom: 15px; /* 下方間距 */
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
 
-    .card-content { /* 各個區塊部門卡片的內容 */
-      font-size: 14px; /* 內容字體大小 */
-      color: #666; /* 灰色文字 */
+    .card-content {
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
-
 <body>
-  <div class="container"> <!-- 最外層容器 -->
-    <div class="bigcard"> <!-- 上方 Rosa 主卡片 -->
-      <img src="images/Rosa_s_School_Logo.png" alt="logo圖片"> <!-- 顯示 Logo 圖 -->
-      <div class="bigcard-body"> <!-- 卡片內文 -->
-        <h2>Rosa's School</h2> <!-- 校名 -->
-        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p> <!-- Facebook 連結 -->
-        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p> <!-- IG 連結 -->
+
+  <div class="container">
+    <div class="bigcard">
+      <img src="images/Rosa_s_School_Logo.png" alt="logo圖片">
+      <div class="bigcard-body">
+        <h2>Rosa's School</h2>
+        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p>
+        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p>
       </div>
     </div>
 
-    <div class="other-class"> <!-- 課程資訊區塊 -->
-      <h3>課程資訊</h3> <!-- 區塊標題 -->
-      <div class="card-list"> <!-- 卡片清單容器 -->
-
-        <a href="detail.html?dept=baby" class="card"> <!-- 幼兒部卡片 -->
-          <img src="images/rosa2.jpg" alt="幼兒部"> <!-- 圖片 -->
-          <div class="card-body"> <!-- 卡片內文 -->
-            <div class="card-title">幼兒部</div> <!-- 課程名稱 -->
-            <div class="card-content">適合3-6歲幼兒，啟發學習興趣</div> <!-- 課程描述 -->
-          </div>
-        </a>
-
-        <a href="detail.html?dept=elementary" class="card"> <!-- 國小部卡片 -->
-          <img src="images/rosa2.jpg" alt="國小部"> <!-- 圖片 -->
-          <div class="card-body"> <!-- 卡片內文 -->
-            <div class="card-title">國小部</div> <!-- 課程名稱 -->
-            <div class="card-content">國語、數學、自然基礎打底</div> <!-- 課程描述 -->
-          </div>
-        </a>
-
-        <a href="detail.html?dept=junior" class="card"> <!-- 國中部卡片 -->
-          <img src="images/rosa2.jpg" alt="國中部"> <!-- 圖片 -->
-          <div class="card-body"> <!-- 卡片內文 -->
-            <div class="card-title">國中部</div> <!-- 課程名稱 -->
-            <div class="card-content">升學衝刺，考科重點強化</div> <!-- 課程描述 -->
-          </div>
-        </a>
-
-      </div>
+    <div class="other-class">
+      <h3>分校資訊</h3>
     </div>
+    <div class="card-list" id="branch-list"></div>
   </div>
+
+  <script>
+    const branchList = [
+      {
+        name: "樂莎旗艦校",
+        address: "高雄市楠梓區翠屏路117號",
+        mapLink: "https://www.google.com/maps?q=高雄市楠梓區翠屏路117號",
+        phone: "07-3611977",
+        image: "images/rosa2.jpg"
+      },
+      {
+        name: "樂莎高大校",
+        address: "高雄市楠梓區大學東路656號",
+        mapLink: "https://www.google.com/maps?q=高雄市楠梓區大學東路656號",
+        phone: "07-3651377",
+        image: "images/rosa2.jpg"
+      },
+      {
+        name: "樂莎翠屏校",
+        address: "高雄市楠梓區翠屏路123號2樓",
+        mapLink: "https://www.google.com/maps?q=高雄市楠梓區翠屏路123號2樓",
+        phone: "07-3659509",
+        image: "images/rosa2.jpg"
+      },
+      {
+        name: "蘿莎惠民校",
+        address: "高雄市楠梓區惠民路20號",
+        mapLink: "https://www.google.com/maps?q=高雄市楠梓區惠民路20號",
+        phone: "07-3619636",
+        image: "images/rosa2.jpg"
+      }
+    ];
+
+    const list = document.getElementById("branch-list");
+
+    branchList.forEach(branch => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${branch.image}" alt="分校圖片" />
+        <div class="card-body">
+          <div class="card-title">${branch.name}</div>
+          <div class="card-content">地址：<a href="${branch.mapLink}" target="_blank">${branch.address}</a></div>
+          <div class="card-content">電話：<a href="tel:${branch.phone}">${branch.phone}</a></div>
+        </div>
+      `;
+      list.appendChild(card);
+    });
+
+    if (window.location.search.includes("code=") || window.location.search.includes("state=")) {
+      const cleanUrl = window.location.origin + window.location.pathname;
+      window.location.replace(cleanUrl);
+    }
+
+    async function main() {
+      await liff.init({ liffId: "2007250477-mjA9gVo2" });
+      if (liff.isLoggedIn()) {
+        const profile = await liff.getProfile();
+        document.getElementById("userInfo").innerHTML = `
+          <p>歡迎，${profile.displayName}</p>
+          <img src="${profile.pictureUrl}" width="80" style="border-radius: 50%" />
+        `;
+      }
+    }
+  </script>
+
 </body>
 </html>
