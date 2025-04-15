@@ -123,6 +123,28 @@
       font-size: 14px;
       color: #666;
     }
+
+    .back-button {
+      display: inline-block;
+      margin: 30px auto 0;
+      padding: 8px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      color: #444;
+      background-color: #fff;
+      border: 1.5px solid #888;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .back-button:hover {
+      background-color: #f9f9f9;
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+    }
   </style>
 </head>
 <body>
@@ -141,6 +163,9 @@
       <h3>課程資訊</h3>
     </div>
     <div class="card-list" id="course-list"></div>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="javascript:history.back()" class="back-button">返回上一頁</a>
+      </div>
   </div>
 
   <script>
