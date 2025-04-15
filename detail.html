@@ -1,24 +1,22 @@
-<!DOCTYPE html> <!-- 定義為 HTML5 文件 -->
-<html lang="zh-Hant"> <!-- 設定網頁語言為繁體中文 -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" /> <!-- 設定字元編碼為 UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 響應式設計 -->
-  <title>課程詳情 | Rosa School</title> <!-- 頁面標題 -->
-
-  <!-- Google 字體 -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> <!-- 載入字型 -->
-
-  <!-- 頁面樣式 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>課程詳情</title>
   <style>
-    body { 
-      font-family: 'Noto Sans TC', sans-serif; 
-      margin: 0; padding: 0; 
-      background-color: #f2f2f2; 
-    } /* 全域字型與背景 */
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
 
-    .container { 
-      padding: 20px; max-width: 600px; margin: auto; 
-    } /* 中央區塊 */
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
 
     .other-class {
       width: 90%;
@@ -30,88 +28,125 @@
       margin-bottom: 15px;
     }
 
-    .card { 
-      display: flex; 
-      gap: 15px; 
-      align-items: center; 
+    .bigcard {
+      display: flex;
+      gap: 15px;
+      align-items: center;
       background: #fff;
-      padding: 10px; 
-      border-radius: 10px; 
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08);  
-      width: 100%;  
-      text-decoration: none; 
-      color: inherit; 
-      cursor: pointer; 
-      transition: transform 0.2s; 
-    } /* 卡片格式 */
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+      margin: 0 auto 20px auto;
+      width: 90%;
+      max-width: 500px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .bigcard img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .bigcard-body {
+      padding: 10px;
+    }
+
+    .bigcard-body h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .bigcard-body a {
+      color: #007aff;
+      text-decoration: none;
+    }
+
+    .card {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08); 
+      margin: 0 auto 20px auto;
+      width: 90%; /* 寬度限制 */
+      max-width: 500px; /* 最大寬度限制 */
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
 
     .card:hover {
-      transform: translateY(-2px); 
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-    } /* 滑過卡片效果 */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-    .card img { 
-      width: 100px; 
-      height: 100px; 
-      object-fit: cover; 
-      border-radius: 8px; 
-    } /* 卡片圖片 */
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-    .card-body { 
-      padding: 10px; 
-    } /* 文字內距 */
+    .card-body {
+      padding: 10px;
+    }
 
-    .card-body h2 { 
-      margin: 0 0 10px; 
-      font-size: 22px; 
-    } /* 內部標題 */
+    .card-body h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
 
-    .card-body a { 
-      color: #007aff; 
+    .card-body a {
+      color: #007aff;
       text-decoration: none;
-    } /* 內部連結樣式 */
+    }
 
-    .card-list { 
+    .card-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      width: 90%;
-      max-width: 500px;
-      margin: 0 auto;
-    } /* 卡片列表設定 */
+    }
 
-    .card-title { 
-      font-size: 18px; 
-      font-weight: bold; 
-      margin-bottom: 15px; 
-    } /* 標題文字 */
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
 
-    .card-content { 
-      font-size: 14px; 
-      color: #666; 
-    } /* 內文文字 */
+    .card-content {
+      font-size: 14px;
+      color: #666;
+    }
   </style>
 </head>
 <body>
-  <div class="container"> <!-- 外部容器 -->
-    <div class="card"> <!-- 主卡片 -->
-      <img src="images/Rosa_s_School_Logo.png" alt="logo圖片"> <!-- 校徽 -->
-      <div class="card-body"> <!-- 文字區域 -->
-        <h2>Rosa's School</h2> <!-- 校名 -->
-        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p> <!-- FB 連結 -->
-        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p> <!-- IG 連結 -->
+
+  <div class="container">
+    <div class="bigcard">
+      <img src="images/Rosa_s_School_Logo.png" alt="logo圖片">
+      <div class="bigcard-body">
+        <h2>Rosa's School</h2>
+        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p>
+        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p>
       </div>
     </div>
 
-    <div class="other-class"> <!-- 課程清單區 -->
-      <h3 id="class-title">課程分類</h3> <!-- 課程標題 -->
-      <div class="card-list" id="card-list"></div> <!-- 動態卡片清單 -->
+    <div class="other-class">
+      <h3>課程資訊</h3>
     </div>
+    <div class="card-list" id="dpt-list"></div>
   </div>
 
   <script>
+
     const params = new URLSearchParams(window.location.search); // 取得網址參數
-    const dept = params.get('dept'); // 抓取部門代碼
+    const dept = params.get('dpt'); // 抓取部門代碼
 
     const classTitleMap = { // 部門對應中文
       baby: "幼兒部",
@@ -119,40 +154,56 @@
       junior: "國中部"
     };
 
-    const cardData = { // 每個部門的課程資料
-      baby: [
-        { id: 1, name: "全美外師互動班", content: "全美語環境，外師互動學習", image: "images/rosa1.jpg" },
-        { id: 2, name: "正音語文素養班", content: "注音符號教學", image: "images/rosa2.jpg" }
-      ],
-      elementary: [
-        { id: 1, name: "思達數學班", content: "以遊戲方式訓練數感", image: "images/ele1.jpg" },
-        { id: 2, name: "作文閱讀班", content: "打好英文溝通基礎", image: "images/ele2.jpg" }
-      ],
-      junior: [
-        { id: 1, name: "國中數學先修", content: "提前進入會考數學內容", image: "images/junior1.jpg" },
-        { id: 2, name: "國中英文寫作", content: "強化閱讀與寫作能力", image: "images/junior2.jpg" }
-      ]
-    };
+    const dptList = [
+      {
+        name: "幼兒部",
+        descri: "適合3-6歲小朋友",
+        image: "images/rosa2.jpg"
+      },
+      {
+        name: "國小部",
+        descri: "豐富課程",
+        image: "images/rosa2.jpg"
+      },
+      {
+        name: "國高中部",
+        descri: "各科加強",
+        image: "images/rosa2.jpg"
+      },
+    ];
 
-    document.getElementById("class-title").textContent = classTitleMap[dept] || "課程分類"; // 設定頁面標題
+    const list = document.getElementById("dpt-list");
 
-    const courseList = cardData[dept] || [];
-
-  const cardList = document.getElementById("card-list");
-  courseList.forEach(item => {
-    const a = document.createElement("a");
+    dptList.forEach(dpt => {
+      const a = document.createElement("a");
       a.className = "card";
-      a.href = `final.html?dept=${dept}&id=${item.id}`;
+      a.href = `detail.html?dept=${dpt.name}`; 
       a.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" />
+        <img src="${dpt.image}" alt="部門圖片" />
         <div class="card-body">
-        <div class="card-title">${item.name}</div>
-        <div class="card-content">${item.content}</div>
-      </div>
-    `;
-    cardList.appendChild(a);
-  });
+          <div class="card-title">${dpt.name}</div>
+          <div class="card-content">${dpt.descri}</div>
+        </div>
+      `;
+      list.appendChild(a);
+    });
 
+    if (window.location.search.includes("code=") || window.location.search.includes("state=")) {
+      const cleanUrl = window.location.origin + window.location.pathname;
+      window.location.replace(cleanUrl);
+    }
+
+    async function main() {
+      await liff.init({ liffId: "2007250477-mjA9gVo2" });
+      if (liff.isLoggedIn()) {
+        const profile = await liff.getProfile();
+        document.getElementById("userInfo").innerHTML = `
+          <p>歡迎，${profile.displayName}</p>
+          <img src="${profile.pictureUrl}" width="80" style="border-radius: 50%" />
+        `;
+      }
+    }
   </script>
+
 </body>
 </html>
