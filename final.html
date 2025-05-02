@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>課程詳情</title>
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .card h2 {
+      margin-top: 15px;
+      font-size: 24px;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin: 30px auto 0;
+      padding: 8px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      color: #444;
+      background-color: #fff;
+      border: 1.5px solid #888;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .back-button:hover {
+      background-color: #f9f9f9;
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="course-detail">
+      <!-- 動態填入課程資訊 -->
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+    <a href="javascript:history.back()" class="back-button">返回上一頁</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const gnr = params.get("gnr");
+    const spc = params.get("spc"); 
+    const courseName = params.get("course");
+    const id = parseInt(params.get("id"));
+
+
+    const courseList = {
+      baby: [
+        {
+          id: 1001,
+          name: "全美外師互動班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 1002,
+          name: "正音語文素養",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 1003,
+          name: "思達數學",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 1004,
+          name: "科技作文",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        }
+      ],
+      elementary: [
+        {
+          id: 2001,
+          name: "國小作文閱讀班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 2002,
+          name: "國小美語全方位班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 2003,
+          name: "ESL美國小學部全美班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 2004,
+          name: "美語分級班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+      ],
+      junior: [
+        {
+          id: 3001,
+          name: "國一英文班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 3002,
+          name: "國二英文班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 3003,
+          name: "國三英文會考總複習班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 3004,
+          name: "國中數學班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 3005,
+          name: "國中理化班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 3006,
+          name: "高中英文班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+        {
+          id: 3007,
+          name: "高中數學班",
+          descri: "課程簡介...",
+          image: "images/rosa2.jpg"
+        },
+      ]
+    };
+
+    const spcList = [
+      {
+        id: 1004,
+        name: "科技作文",
+        descri: "課程簡介...",
+        image: "images/rosa2.jpg"
+      }
+    ];
+
+    const selectedCourse = (courseList[gnr] || []).find(c => c.id === id)||spcList.find(c => c.id === id);;
+    const detailBox = document.getElementById("course-detail");
+
+    if (selectedCourse) {
+      detailBox.innerHTML = `
+        <img src="${selectedCourse.image}" alt="${selectedCourse.name}" />
+        <h2>${selectedCourse.name}</h2>
+        <p>${selectedCourse.descri}</p>
+      `;
+    } else {
+      detailBox.innerHTML = `<p>查無此課程。</p>`;
+    }
+  </script>
+</body>
+</html>
