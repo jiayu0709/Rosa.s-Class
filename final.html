@@ -64,6 +64,28 @@
       transform: translateY(-2px);
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
     }
+
+    .desc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 20px;
+      padding: 0;
+       margin-top: 15px;
+    }
+
+    .desc-grid li {
+      list-style: none;
+      font-size: 16px;
+      position: relative;
+      padding-left: 20px;
+      color: #555;
+    }
+
+    .desc-grid li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
   </style>
 </head>
 <body>
