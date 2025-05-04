@@ -73,6 +73,7 @@
       margin-top: 15px;
       width: calc(100% - 30px);
       max-width: 520px; 
+      margin: 15px auto 0;
     }
 
     .desc-grid li {
@@ -113,7 +114,7 @@
         {
           id: 1001,
           name: "全美外師互動班",
-          descri: "✔️沉浸式英語互動教學✔️字母發音聽說能力<br>✔️搭配閱讀書籍音檔✔️節慶主題相關教學",
+          descri: "沉浸式英語互動教學|字母發音聽說能力|搭配閱讀書籍音檔|節慶主題相關教學",
           image: "images/rosa2.jpg"
         },
         {
@@ -230,16 +231,9 @@
         <img src="${selectedCourse.image}" alt="${selectedCourse.name}" />
         <h2>${selectedCourse.name}</h2>
         <ul class="desc-grid">
-          ${selectedCourse.descri
-            .split("<br>")
-            .map(line => {
-              const items = line.split("✔️").filter(Boolean);
-              return `
-                <li>✔️ ${items[0]}</li>
-                ${items[1] ? `<li>✔️ ${items[1]}</li>` : ""}
-              `;
-            })
-          .join("")}
+          ${selectedCourse.descri.split("|").map(line => `
+            <li>✔️ ${line.trim()}</li>
+          `).join("")}
         </ul>
       `;
     } else {
