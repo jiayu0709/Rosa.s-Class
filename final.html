@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>課程詳情</title>
+  <title>課程列表</title>
   <style>
     body {
       font-family: 'Noto Sans TC', sans-serif;
@@ -13,50 +13,133 @@
     }
 
     .container {
+      padding: 20px;
       max-width: 600px;
       margin: auto;
-      padding: 20px;
     }
 
-    .card {
-      background: white;
+    .other-class {
+      width: 90%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .other-class h3 {
+      margin-bottom: 15px;
+    }
+
+    .bigcard {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      background: #fff;
+      padding: 10px;
       border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+      margin: 0 auto 20px auto;
+      width: 90%;
+      max-width: 500px;
+      text-decoration: none;
+      color: inherit;
     }
 
-    .card img {
-      width: 100%;
-      max-height: 250px;
+    .bigcard img {
+      width: 100px;
+      height: 100px;
       object-fit: cover;
       border-radius: 8px;
     }
 
-    .card h2 {
-      margin-top: 15px;
-      font-size: 24px;
+    .bigcard-body {
+      padding: 10px;
     }
 
-    .card p {
-      font-size: 16px;
-      color: #555;
-      margin-top: 10px;
+    .bigcard-body h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .bigcard-body a {
+      color: #007aff;
+      text-decoration: none;
+    }
+
+    .card {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08); 
+      margin: 0 auto 20px auto;
+      width: 90%; /* 寬度限制 */
+      max-width: 500px; /* 最大寬度限制 */
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .card-body {
+      padding: 10px;
+    }
+
+    .card-body h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .card-body a {
+      color: #007aff;
+      text-decoration: none;
+    }
+
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .card-content {
+      font-size: 14px;
+      color: #666;
     }
 
     .back-button {
-      display: inline-block;
-      margin: 30px auto 0;
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
       padding: 8px 20px;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
-      text-align: center;
       color: #444;
       background-color: #fff;
       border: 1.5px solid #888;
       border-radius: 999px;
       text-decoration: none;
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
       transition: all 0.2s ease-in-out;
+      z-index: 1000;
     }
 
     .back-button:hover {
@@ -64,184 +147,183 @@
       transform: translateY(-2px);
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
     }
-
-    .desc-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 20px;
-      padding: 0;
-      margin-top: 15px;
-      margin-left: 60px;
-      margin-right: 15px;
-    }   
-
-    .desc-grid li {
-      list-style: none;
-      font-size: 16px;
-      position: relative;
-      padding-left: 20px;
-      color: #555;
-    }
-
-    .desc-grid li::before {
-      content: "✔️";
-      position: absolute;
-      left: 0;
-    }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <div class="card" id="course-detail">
-      <!-- 動態填入課程資訊 -->
+    <div class="bigcard">
+      <img src="images/Rosa_s_School_Logo.png" alt="logo圖片">
+      <div class="bigcard-body">
+        <h2>Rosa's School</h2>
+        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p>
+        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p>
+      </div>
     </div>
+
+    <div class="other-class">
+      <h3>課程資訊</h3>
+    </div>
+    <div class="card-list" id="course-list"></div>
     <div style="text-align: center; margin-top: 30px;">
-    <a href="javascript:history.back()" class="back-button">返回上一頁</a>
-    </div>
+      <a href="javascript:history.back()" class="back-button">返回上一頁</a>
+      </div>
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const gnr = params.get("gnr");
-    const spc = params.get("spc"); 
-    const courseName = params.get("course");
-    const id = parseInt(params.get("id"));
 
+    const params = new URLSearchParams(window.location.search); // 取得網址參數
+    const gnr = params.get('gnr'); // 抓取部門代碼
 
-    const courseList = {
-      baby: [
-        {
-          id: 1001,
-          name: "全美外師互動班",
-          descri: "✔️沉浸式英語互動教學✔️字母發音聽說能力<br>✔️搭配閱讀書籍音檔✔️節慶主題相關教學",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 1002,
-          name: "正音語文素養",
-          descri: "✔️注音符號教學✔️聲母韻母拼讀<br>✔️國語發音教學✔️語文能力養成",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 1003,
-          name: "思達數學",
-          descri: "✔️階梯式分級制度✔️創意思考力教學<br>✔️培養解決問題的能力✔️兒童思維邏輯",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 1004,
-          name: "科技作文",
-          descri: "課程簡介...",
-          image: "images/rosa2.jpg"
-        }
-      ],
-      elementary: [
-        {
-          id: 2001,
-          name: "國小作文閱讀班",
-          descri: "✔️新課綱閱讀素養✔️主題架構閱讀寫作<br>✔️語文詞彙修辭教學✔️國中國文作文銜接",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 2002,
-          name: "國小美語全方位班",
-          descri: "✔️中外師雙師制度✔️每週三堂美語課<br>✔️班級雙導師制度✔️精緻全方位課程",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 2003,
-          name: "ESL美國小學部全美班",
-          descri: "✔️沈浸式全美外師✔️每週四堂美語課<br>✔️全美聽說讀寫演說✔️精緻小班環境課程",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 2004,
-          name: "美語分級班",
-          descri: "✔️精緻階梯式分級✔️中師外師搭配<br>✔️聽說讀寫全方面✔️英檢輔導機制",
-          image: "images/rosa2.jpg"
-        },
-      ],
-      junior: [
-        {
-          id: 3001,
-          name: "國一英文班",
-          descri: "✔️校內英文課程加強<br>✔️閱讀理解素養課程<br>✔️外師口說寫作教學<br>✔️GEPT英檢教學課程",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 3002,
-          name: "國二英文班",
-          descri: "✔️校內英文課程加強<br>✔️閱讀理解素養課程<br>✔️外師口說寫作教學<br>✔️GEPT英檢教學課程",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 3003,
-          name: "國三英文會考總複習班",
-          descri: "✔️中校內英文課程加強<br>✔️國中英文會考複習<br>✔️外師口說寫作教學<br>✔️GEPT英檢教學課程",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 3004,
-          name: "國中數學班",
-          descri: "✔️分級精緻小班<br>✔️校內課外題型<br>✔️新課綱邏輯思維",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 3005,
-          name: "國中理化班",
-          descri: "✔️分級精緻小班<br>✔️校內課外題型<br>✔️新課綱邏輯思維",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 3006,
-          name: "高中英文班",
-          descri: "✔️精緻小班分級制<br>✔️中外師課程搭配<br>✔️英檢多益輔導<br>✔️大學推甄寫作口說訓練",
-          image: "images/rosa2.jpg"
-        },
-        {
-          id: 3007,
-          name: "高中數學班",
-          descri: "✔️客製化個別化課程<br>✔️全科家教課<br>✔️校內外檢定需求<br>✔️全美外師口說",
-          image: "images/rosa2.jpg"
-        },
-      ]
+    const classTitleMap = { // 部門對應中文
+      baby: "幼兒部",
+      elementary: "國小部",
+      junior: "國中部"
     };
 
-    const spcList = [
+    const courseList = {
+    baby: [
+      {
+        id: 1001,
+        name: "全美外師互動班",
+        descri: "✔️沉浸式英語互動教學✔️字母發音聽說能力<br>✔️搭配閱讀書籍音檔✔️節慶主題相關教學",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 1002,
+        name: "正音語文素養",
+        descri: "✔️注音符號教學✔️聲母韻母拼讀<br>✔️國語發音教學✔️語文能力養成",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 1003,
+        name: "思達數學",
+        descri: "✔️階梯式分級制度<br>✔️創意思考力教學<br>✔️培養解決問題的能力<br>✔️兒童思維邏輯",
+        image: "images/rosa2.jpg"
+      },
       {
         id: 1004,
         name: "科技作文",
         descri: "課程簡介...",
         image: "images/rosa2.jpg"
+      }
+    ],
+    elementary: [
+      {
+        id: 2001,
+        name: "國小作文閱讀班",
+        descri: "✔️新課綱閱讀素養<br>✔️主題架構閱讀寫作<br>✔️語文詞彙修辭教學<br>✔️國中國文作文銜接",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 2002,
+        name: "國小美語全方位班",
+        descri: "✔️中外師雙師制度<br>✔️每週三堂美語課<br>✔️班級雙導師制度<br>✔️精緻全方位課程",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 2003,
+        name: "ESL美國小學部全美班",
+        descri: "✔️沈浸式全美外師<br>✔️每週四堂美語課<br>✔️全美聽說讀寫演說<br>✔️精緻小班環境課程",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 2004,
+        name: "美語分級班",
+        descri: "✔️精緻階梯式分級<br>✔️中師外師搭配<br>✔️聽說讀寫全方面<br>✔️英檢輔導機制",
+        image: "images/rosa2.jpg"
       },
       {
         id: 2005,
         name: "全科一對一輔導課程",
-        descri: "✔️客製化個別化課程✔️全科家教課<br>✔️校內外檢定需求✔️全美外師口說",
+        descri: "✔️客製化個別化課程<br>✔️全科家教課<br>✔️校內外檢定需求<br>✔️全美外師口說",
         image: "images/rosa2.jpg"
       }
-    ];
+    ],
+    junior: [
+      {
+        id: 3001,
+        name: "國一英文班",
+        descri: "✔️校內英文課程加強<br>✔️閱讀理解素養課程<br>✔️外師口說寫作教學<br>✔️GEPT英檢教學課程",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 3002,
+        name: "國二英文班",
+        descri: "✔️校內英文課程加強<br>✔️閱讀理解素養課程<br>✔️外師口說寫作教學<br>✔️GEPT英檢教學課程",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 3003,
+        name: "國三英文會考總複習班",
+        descri: "✔️中校內英文課程加強<br>✔️國中英文會考複習<br>✔️外師口說寫作教學<br>✔️GEPT英檢教學課程",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 3004,
+        name: "國中數學班",
+        descri: "✔️分級精緻小班<br>✔️校內課外題型<br>✔️新課綱邏輯思維",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 3005,
+        name: "國中理化班",
+        descri: "✔️分級精緻小班<br>✔️校內課外題型<br>✔️新課綱邏輯思維",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 3006,
+        name: "高中英文班",
+        descri: "✔️精緻小班分級制<br>✔️中外師課程搭配<br>✔️英檢多益輔導<br>✔️大學推甄寫作口說訓練",
+        image: "images/rosa2.jpg"
+      },
+      {
+        id: 2005,
+        name: "全科一對一輔導課程",
+        descri: "✔️客製化個別化課程<br>✔️全科家教課<br>✔️校內外檢定需求<br>✔️全美外師口說",
+        image: "images/rosa2.jpg"
+      }
+    ],
+  };
 
-    const selectedCourse = (courseList[gnr] || []).find(c => c.id === id)||spcList.find(c => c.id === id);;
-    const detailBox = document.getElementById("course-detail");
+    // 設定標題文字
+    document.querySelector(".other-class h3").textContent = classTitleMap[gnr] || "課程資訊";
 
-    if (selectedCourse) {
-      detailBox.innerHTML = `
-        <img src="${selectedCourse.image}" alt="${selectedCourse.name}" />
-        <h2>${selectedCourse.name}</h2>
-        <ul class="desc-grid">
-          ${selectedCourse.descri.split('<br>').map(line => {
-            const items = line.split('✔️').filter(Boolean);
-            return `
-              <li>${items[0]}</li>
-              ${items[1] ? `<li>${items[1]}</li>` : ''}
-            `;
-          }).join('')}
-        </ul>
+
+    // 顯示課程卡片
+    const list = document.getElementById("course-list");
+    const selectedCourses = courseList[gnr] || [];
+
+    selectedCourses.forEach(course => {
+      const a = document.createElement("a");
+      a.className = "card";
+      a.href = `final.html?gnr=${gnr}&id=${course.id}`;
+      a.innerHTML = `
+        <img src="${course.image}" alt="課程課程圖片" />
+        <div class="card-body">
+          <div class="card-title">${course.name}</div>
+          <div class="card-content">${course.descri}</div>
+        </div>
       `;
-    } else {
-      detailBox.innerHTML = `<p>查無此課程。</p>`;
+      list.appendChild(a);
+    });
+
+    if (window.location.search.includes("code=") || window.location.search.includes("state=")) {
+      const cleanUrl = window.location.origin + window.location.pathname;
+      window.location.replace(cleanUrl);
+    }
+
+    async function main() {
+      await liff.init({ liffId: "2007250477-mjA9gVo2" });
+      if (liff.isLoggedIn()) {
+        const profile = await liff.getProfile();
+        document.getElementById("userInfo").innerHTML = `
+          <p>歡迎，${profile.displayName}</p>
+          <img src="${profile.pictureUrl}" width="80" style="border-radius: 50%" />
+        `;
+      }
     }
   </script>
+
 </body>
 </html>
