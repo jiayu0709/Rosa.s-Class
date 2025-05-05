@@ -235,7 +235,6 @@
       detailBox.innerHTML = `
         <img src="${selectedCourse.image}" alt="${selectedCourse.name}" />
         <h2>${selectedCourse.name}</h2>
-        <p><strong>📅 開課時間：</strong>${selectedCourse.time || "尚未公布"}</p>
         <ul class="desc-grid">
           ${selectedCourse.descri.split('<br>').map(line => {
             const items = line.split('✔️').filter(Boolean);
@@ -245,6 +244,7 @@
             `;
           }).join('')}
         </ul>
+        <p><strong>📅 開課時間：</strong>${selectedCourse.time || "尚未公布"}</p>
       `;
     } else {
       detailBox.innerHTML = `<p>查無此課程。</p>`;
