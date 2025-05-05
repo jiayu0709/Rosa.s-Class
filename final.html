@@ -126,10 +126,23 @@
           id: 1001,
           name: "全美外師互動班",
           descri: "✔️沉浸式英語互動✔️字母發音聽說能力<br>✔️搭配閱讀書籍音檔✔️節慶主題相關教學",
-          time: {
-            "高大校": ["A班　週一 19:00–20:00", "B班　週三 19:00–20:00"],
-            "旗艦校": ["A班　週六 09:30–10:30", "B班　週六 10:45–11:45", "C班　週六 18:30–19:30"]
-          },
+          time: [
+            {
+              school: "高大校",
+              classes: [
+                { name: "A班", time: "週一 19:00–20:00" },
+                { name: "B班", time: "週三 19:00–20:00" }
+              ]
+            },
+            {
+              school: "旗艦校",
+              classes: [
+                { name: "A班", time: "週六 09:30–10:30" },
+                { name: "B班", time: "週六 10:45–11:45" },
+                { name: "C班", time: "週三 18:30–19:30" }
+              ]
+            }
+          ],
           image: "images/幼兒美語2.jpg"
         },
         {
@@ -291,7 +304,7 @@
     const selectedCourse = (courseList[gnr] || []).find(c => c.id === id)||spcList.find(c => c.id === id);;
     const detailBox = document.getElementById("course-detail");
     if (selectedCourse) {
-      detailBox.innerHTML = `
+      let html = `
         <img src="${selectedCourse.image}" alt="${selectedCourse.name}" />
         <h2>${selectedCourse.name}</h2>
         <ul class="desc-grid">
@@ -303,24 +316,25 @@
             `;
           }).join('')}
         </ul>
-        <p><strong>📅 開課時間：</strong></p>
-        ${(selectedCourse.time || []).map(block => `
-          <div style="margin-top: 10px;">
-            <div><strong>📍 ${block.campus}</strong></div>
-            ${block.categories.map(cat => `
-              <div style="margin-left: 10px; color: #888; margin-top: 5px;">${cat.name}</div>
-              <ul style="margin: 5px 0 10px 25px; padding: 0;">
-                ${cat.classes.map(cls => `
-                  <li style="list-style: none;">• ${cls.name}　${cls.time}</li>
-                `).join("")}
-              </ul>
-            `).join("")}
-          </div>
-        `).join("")}
       `;
-    } else {
-      detailBox.innerHTML = `<p>查無此課程。</p>`;
+
+    if (selectedCourse.time) {
+      html += `<p style="margin-top: 15px;"><strong>📅 開課時間：</strong></p>`;
+      selectedCourse.time.forEach(school => {
+        html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.school}</strong></p>`;
+        if (school.level) {
+          html += `<p style="margin: 0 0 5px 10px;"><strong>${school.level}</strong></p>`;
+        }
+        school.classes.forEach(cls => {
+          html += `<p style="margin-left: 20px;">・${cls}</p>`;
+        });
+      });
     }
+
+    detailBox.innerHTML = html;
+  } else {
+    detailBox.innerHTML = `<p>查無此課程。</p>`;
+  }
   </script>
 </body>
 </html>
