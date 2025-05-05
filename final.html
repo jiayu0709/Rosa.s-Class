@@ -296,20 +296,18 @@
         </ul>
       `;
 
-      if (selectedCourse.time) {
+      if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
         html += `<p style="margin-top: 15px;"><strong>📅 開課時間：</strong></p>`;
-        
         selectedCourse.time.forEach(school => {
           html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;
           
           school.categories.forEach(cat => {
-            if (cat.name) {
-              html += `<p style="margin: 0 0 5px 15px;"><strong>${cat.name}</strong></p>`;
-            }
-
+            html += `<p style="margin: 0 0 5px 10px;"><strong>${cat.name}</strong></p>`;
+            html += `<ul class="time-list">`;
             cat.classes.forEach(cls => {
-              html += `<p style="margin-left: 30px;">・${cls.name} ${cls.time}</p>`;
+              html += `<li>${cls.name} ${cls.time}</li>`;
             });
+            html += `</ul>`;
           });
         });
       }
