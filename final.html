@@ -88,6 +88,18 @@
       position: absolute;
       left: 0;
     }
+
+    .time-list {
+      padding-left: 1.5em;
+      font-size: 15px;
+      color: #555;
+      margin: 10px 0 0;
+    }
+    .time-list li {
+      list-style-type: disc;
+      margin-left: 1em;
+      margin-bottom: 4px;
+    }
   </style>
 </head>
 <body>
@@ -114,7 +126,7 @@
           id: 1001,
           name: "全美外師互動班",
           descri: "✔️沉浸式英語互動✔️字母發音聽說能力<br>✔️搭配閱讀書籍音檔✔️節慶主題相關教學",
-          time: "<br>Ａ班 週一19:00–20:00<br> B班 週三19:00–20:00",
+          time: ["A班  週一 19:00–20:00", "B班  週三 19:00–20:00"],
           image: "images/幼兒美語2.jpg"
         },
         {
@@ -244,7 +256,12 @@
             `;
           }).join('')}
         </ul>
-        <p><strong>📅 開課時間：</strong>${selectedCourse.time || "尚未公布"}</p>
+        ${selectedCourse.time ? `
+        <p><strong>📅 開課時間：</strong></p>
+        <ul class="time-list">
+          ${selectedCourse.time.map(t => `<li>${t}</li>`).join('')}
+        </ul>
+      ` : ''}
       `;
     } else {
       detailBox.innerHTML = `<p>查無此課程。</p>`;
