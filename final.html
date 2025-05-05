@@ -126,7 +126,10 @@
           id: 1001,
           name: "全美外師互動班",
           descri: "✔️沉浸式英語互動✔️字母發音聽說能力<br>✔️搭配閱讀書籍音檔✔️節慶主題相關教學",
-          time: ["A班  週一 19:00–20:00", "B班  週三 19:00–20:00"],
+          time: {
+            "高大校": ["A班　週一 19:00–20:00", "B班　週三 19:00–20:00"],
+            "旗艦校": ["A班　週二 19:00–20:00", "B班　週四 19:00–20:00"]
+          },
           image: "images/幼兒美語2.jpg"
         },
         {
@@ -258,9 +261,14 @@
         </ul>
         ${selectedCourse.time ? `
         <p><strong>📅 開課時間：</strong></p>
-        <ul class="time-list">
-          ${selectedCourse.time.map(t => `<li>${t}</li>`).join('')}
-        </ul>
+        <div class="time-block">
+            ${Object.entries(selectedCourse.time).map(([campus, times]) => `
+              <p style="margin: 10px 0 5px; font-weight: bold;">📍 ${campus}</p>
+              <ul class="time-list" style="margin-top: 0; padding-left: 1em;">
+                ${times.map(t => `<li>${t}</li>`).join('')}
+              </ul>
+            `).join('')}
+          </div>
       ` : ''}
       `;
     } else {
