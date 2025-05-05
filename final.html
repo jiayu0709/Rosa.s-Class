@@ -114,6 +114,7 @@
           id: 1001,
           name: "全美外師互動班",
           descri: "✔️沉浸式英語互動✔️字母發音聽說能力<br>✔️搭配閱讀書籍音檔✔️節慶主題相關教學",
+          time: "每週二與四 15:30–17:00",
           image: "images/幼兒美語2.jpg"
         },
         {
@@ -234,6 +235,7 @@
       detailBox.innerHTML = `
         <img src="${selectedCourse.image}" alt="${selectedCourse.name}" />
         <h2>${selectedCourse.name}</h2>
+        <p><strong>📅 開課時間：</strong>${selectedCourse.time || "尚未公布"}</p>
         <ul class="desc-grid">
           ${selectedCourse.descri.split('<br>').map(line => {
             const items = line.split('✔️').filter(Boolean);
