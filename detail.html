@@ -28,6 +28,28 @@
       margin-bottom: 15px;
     }
 
+    .desc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 20px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .desc-grid li {
+      position: relative;
+      padding-left: 20px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .desc-grid li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
+
     .bigcard {
       display: flex;
       gap: 15px;
@@ -302,7 +324,15 @@
         <img src="${course.image}" alt="課程課程圖片" />
         <div class="card-body">
           <div class="card-title">${course.name}</div>
-          <div class="card-content">${course.descri}</div>
+          <ul class="desc-grid">
+          ${selectedCourse.descri.split('<br>').map(line => {
+            const items = line.split('✔️').filter(Boolean);
+            return `
+              <li>${items[0]}</li>
+              ${items[1] ? `<li>${items[1]}</li>` : ''}
+            `;
+          }).join('')}
+        </ul>
         </div>
       `;
       list.appendChild(a);
