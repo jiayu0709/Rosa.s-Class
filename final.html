@@ -100,6 +100,12 @@
       margin-left: 1em;
       margin-bottom: 4px;
     }
+    .level-label {
+      font-size: 14px;
+      margin: 0 0 5px 15px;
+      font-weight: bold;
+      color: #666;
+    }
   </style>
 </head>
 <body>
@@ -302,7 +308,7 @@
           html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;
           
           school.categories.forEach(cat => {
-            html += `<p style="margin: 0 0 5px 10px;"><strong>${cat.name}</strong></p>`;
+            html += `<p class="level-label">${cat.name}</p>`;
             html += `<ul class="time-list">`;
             cat.classes.forEach(cls => {
               html += `<li>${cls.name} ${cls.time}</li>`;
