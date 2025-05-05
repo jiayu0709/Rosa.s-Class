@@ -321,18 +321,18 @@
       a.className = "card";
       a.href = `final.html?gnr=${gnr}&id=${course.id}`;
       a.innerHTML = `
-        <img src="${course.image}" alt="課程課程圖片" />
+        <img src="${course.image}" alt="課程圖片" />
         <div class="card-body">
           <div class="card-title">${course.name}</div>
           <ul class="desc-grid">
-          ${selectedCourse.descri.split('<br>').map(line => {
-            const items = line.split('✔️').filter(Boolean);
-            return `
-              <li>${items[0]}</li>
-              ${items[1] ? `<li>${items[1]}</li>` : ''}
-            `;
-          }).join('')}
-        </ul>
+            ${course.descri.split('<br>').map(line => {
+              const items = line.split('✔️').filter(Boolean);
+              return `
+                <li>${items[0]}</li>
+                ${items[1] ? `<li>${items[1]}</li>` : ''}
+              `;
+            }).join('')}
+          </ul>
         </div>
       `;
       list.appendChild(a);
