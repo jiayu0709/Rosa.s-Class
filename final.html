@@ -439,7 +439,9 @@
     if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
       html += `<p class="course-time-title"><strong>📅 開課時間：</strong></p>`;
       selectedCourse.time.forEach(group => {
-        html += `<p class="course-group-title">${group.groupTitle}</p>`;
+        if (group.groupTitle) {
+          html += `<p class="course-group-title">${group.groupTitle}</p>`;
+        }
         group.school.forEach(school => {
           html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;
           school.categories.forEach(cat => {
