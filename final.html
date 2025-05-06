@@ -380,7 +380,9 @@
           html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;
           
           school.categories.forEach(cat => {
-            html += `<p class="level-label">${cat.name}</p>`;
+            if (cat.name) {
+              html += `<p class="level-label">${cat.name}</p>`;
+            }
             html += `<ul class="time-list">`;
             cat.classes.forEach(cls => {
               html += `<li>${cls.name} ${cls.time}</li>`;
