@@ -114,7 +114,7 @@
       font-weight: bold;
       font-size: 15px;
     }
-    .course-sec-title {
+    .course-group-title {
       margin-top: 16px;
       color: #2b5dab;
       font-weight: bold;
@@ -245,23 +245,49 @@
         },
         {
           id: 1004,
-          name: "科技正音語文班",
-          secname:"科技二",
+          name: "溫美玉互動科技作文",
           descri: "✔️108課綱素養跨領域<br>✔️精緻化課程設計<br>✔️適齡適性課程設計<br>✔️課程系統從小紮根",
           time: [
             {
-              campus: "高大校",
-              categories: [
+              groupTitle:"科技正音語文班",
+              school:[
                 {
-                  name: "中班、大班",
-                  classes: [
-                    { name: "B階班", time: "週五 18:30–19:30" }
+                  campus: "高大校",
+                  categories: [
+                    {
+                      name: "中班、大班",
+                      classes: [
+                        { name: "B階班", time: "週五 18:30–19:30" }
+                      ]
+                    },
+                    {
+                      name: "小一、小二",
+                      classes: [
+                        { name: "D階班", time: "週三 16:30–17:40" }
+                      ]
+                    }
                   ]
-                },
+                }
+              ]
+            },
+            {
+              groupTitle:"科技正音語文班",
+              school:[
                 {
-                  name: "小一、小二",
-                  classes: [
-                    { name: "D階班", time: "週三 16:30–17:40" }
+                  campus: "高大校",
+                  categories: [
+                    {
+                      name: "中班、大班",
+                      classes: [
+                        { name: "B階班", time: "週五 18:30–19:30" }
+                      ]
+                    },
+                    {
+                      name: "小一、小二",
+                      classes: [
+                        { name: "D階班", time: "週三 16:30–17:40" }
+                      ]
+                    }
                   ]
                 }
               ]
@@ -363,22 +389,21 @@
       `;
 
       if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
-        if (selectedCourse.secname) {
-          html += `<p class="course-sec-title">${selectedCourse.secname}</p>`;
-        }
         html += `<p class="course-time-title"><strong>📅 開課時間：</strong></p>`;
-        selectedCourse.time.forEach(school => {
-          html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;
-          
-          school.categories.forEach(cat => {
-            if (cat.name) {
-              html += `<p class="level-label">${cat.name}</p>`;
-            }
-            html += `<ul class="time-list">`;
-            cat.classes.forEach(cls => {
-              html += `<li>${cls.name} ${cls.time}</li>`;
+        selectedCourse.time.forEach(group => {
+          html += `<p class="course-group-title"><strong>${group.groupTitle}</p>`;
+          selectedCourse.time.forEach(school => {
+            html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;  
+            school.categories.forEach(cat => {
+              if (cat.name) {
+                html += `<p class="level-label">${cat.name}</p>`;
+              }
+              html += `<ul class="time-list">`;
+              cat.classes.forEach(cls => {
+                html += `<li>${cls.name} ${cls.time}</li>`;
+              });
+              html += `</ul>`;
             });
-            html += `</ul>`;
           });
         });
       }
