@@ -388,26 +388,25 @@
         </ul>
       `;
 
-      if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
-        html += `<p class="course-time-title"><strong>📅 開課時間：</strong></p>`;
-        selectedCourse.time.forEach(group => {
-          html += `<p class="course-group-title"><strong>${group.groupTitle}</p>`;
-          selectedCourse.time.forEach(school => {
-            html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;  
-            school.categories.forEach(cat => {
-              if (cat.name) {
-                html += `<p class="level-label">${cat.name}</p>`;
-              }
-              html += `<ul class="time-list">`;
-              cat.classes.forEach(cls => {
-                html += `<li>${cls.name} ${cls.time}</li>`;
-              });
-              html += `</ul>`;
+    if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
+      html += `<p class="course-time-title"><strong>📅 開課時間：</strong></p>`;
+      selectedCourse.time.forEach(group => {
+        html += `<p class="course-group-title">${group.groupTitle}</p>`;
+        group.school.forEach(school => {
+          html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;
+          school.categories.forEach(cat => {
+            if (cat.name) {
+              html += `<p class="level-label">${cat.name}</p>`;
+            }
+            html += `<ul class="time-list">`;
+            cat.classes.forEach(cls => {
+              html += `<li>${cls.name} ${cls.time}</li>`;
             });
+            html += `</ul>`;
           });
         });
-      }
-
+      });
+    }
       detailBox.innerHTML = html;
     } else {
       detailBox.innerHTML = `<p>查無此課程。</p>`;
