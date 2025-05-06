@@ -122,15 +122,13 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const gnr = params.get("gnr");
-    const spc = params.get("spc"); 
     const courseName = params.get("course");
     const id = parseInt(params.get("id"));
 
 
-    const courseList = {
-      baby: [
+    const courseList = [
         {
+          //baby
           id: 1001,
           name: "全美外師互動班",
           descri: "✔️沉浸式英語互動✔️字母發音聽說能力<br>✔️搭配閱讀書籍音檔✔️節慶主題相關教學",
@@ -263,9 +261,8 @@
         name: "科學樂高",
         descri: "✔️想像力無限延伸<br>✔️創意思考力教學<br>✔️適齡適性課程設計<br>✔️精緻化課程設計",
         image: "images/rosa2.jpg"
-        }
-      ],
-      elementary: [
+        },
+        //elementary
         {
           id: 2001,
           name: "國小作文閱讀班",
@@ -290,8 +287,7 @@
           descri: "✔️精緻階梯式分級✔️中師外師搭配<br>✔️聽說讀寫全方面✔️英檢輔導機制",
           image: "images/分級班.jpg"
         },
-      ],
-      junior: [
+        //junior
         {
           id: 3001,
           name: "國一英文班",
@@ -334,25 +330,9 @@
           descri: "✔️客製化個別化課程<br>✔️全科家教課<br>✔️校內外檢定需求<br>✔️全美外師口說",
           image: "images/rosa2.jpg"
         },
-      ]
-    };
+      ];
 
-    const spcList = [
-      {
-        id: 1004,
-        name: "科技作文",
-        descri: "課程簡介...",
-        image: "images/rosa2.jpg"
-      },
-      {
-        id: 1005,
-        name: "科學樂高",
-        descri: "✔️想像力無限延伸<br>✔️創意思考力教學<br>✔️適齡適性課程設計<br>✔️精緻化課程設計",
-        image: "images/rosa2.jpg"
-      }
-    ];
-
-    const selectedCourse = (courseList[gnr] || []).find(c => c.id === id)||spcList.find(c => c.id === id);;
+    const selectedCourse = courseList.find(c => c.id === id);
     const detailBox = document.getElementById("course-detail");
     if (selectedCourse) {
       let html = `
