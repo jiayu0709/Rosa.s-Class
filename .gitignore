@@ -1,8 +1,19 @@
-# Node.js
+# Node.js 相依套件資料夾（非常大，絕對不要提交）
 node_modules/
-dist/
-.env
-.DS_Store
 
-# VS Code
+# VS Code 設定
 .vscode/
+
+# 編譯產出或暫存檔案
+dist/
+build/
+*.log
+*.tmp
+
+# 系統產生的垃圾檔
+.DS_Store
+Thumbs.db
+
+# yarn/npm lock 檔案（可選）
+yarn.lock
+package-lock.json
