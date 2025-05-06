@@ -108,6 +108,12 @@
       font-weight: bold;
       color: #666;
     }
+    .course-time-title {
+      margin-top: 15px;
+      color: #2b5dab;
+      font-weight: bold;
+      font-size: 15px;
+    }
   </style>
 </head>
 <body>
@@ -234,6 +240,7 @@
         {
           id: 1004,
           name: "科技正音語文班",
+          secname:"科技二",
           descri: "✔️108課綱素養跨領域<br>✔️精緻化課程設計<br>✔️適齡適性課程設計<br>✔️課程系統從小紮根",
           time: [
             {
@@ -350,7 +357,10 @@
       `;
 
       if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
-        html += `<p style="margin-top: 15px;"><strong>📅 開課時間：</strong></p>`;
+        if (selectedCourse.secname) {
+          html += `<p class="level-label">${selectedCourse.secname}</p>`;
+        }
+        html += `<p class="course-time-title"><strong>📅 開課時間：</strong></p>`;
         selectedCourse.time.forEach(school => {
           html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;
           
