@@ -114,6 +114,12 @@
       font-weight: bold;
       font-size: 15px;
     }
+    .course-sec-title {
+      margin-top: 16px;
+      color: #2b5dab;
+      font-weight: bold;
+      font-size: 15px;
+    }
   </style>
 </head>
 <body>
@@ -358,7 +364,7 @@
 
       if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
         if (selectedCourse.secname) {
-          html += `<p class="level-label">${selectedCourse.secname}</p>`;
+          html += `<p class="course-sec-title">${selectedCourse.secname}</p>`;
         }
         html += `<p class="course-time-title"><strong>📅 開課時間：</strong></p>`;
         selectedCourse.time.forEach(school => {
