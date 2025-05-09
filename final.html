@@ -735,11 +735,17 @@
         if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
           html += `<p class="course-time-title"><strong>📅 開課時間：</strong></p>`;
           selectedCourse.time.forEach((group) => {
+            // ✅ 如果 groupTitle 存在就印出
             if (group.groupTitle) {
               html += `<p class="course-group-title">${group.groupTitle}</p>`;
             }
-            group.school.forEach((school) => {
-              html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;
+
+            // ✅ 處理 school 陣列
+            const schools = group.school || [group]; // ⭐ 如果沒有 group.school，直接當作 school 陣列
+            schools.forEach((school) => {
+              if (school.campus) {
+                html += `<p style="margin-bottom: 5px;"><strong>📍 ${school.campus}</strong></p>`;
+              }
               school.categories.forEach((cat) => {
                 if (cat.name) {
                   html += `<p class="level-label">${cat.name}</p>`;
