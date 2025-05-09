@@ -733,7 +733,7 @@
       `;
 
         if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
-          html += `<p class="course-time-title"><strong>📅 開課時間：</strong></p>`;
+          html += `<p class="course-time-title">📅 開課時間：</strong></p>`;
           selectedCourse.time.forEach((group) => {
             if (group.groupTitle) {
               html += `<p class="course-group-title">${group.groupTitle}</p>`;
