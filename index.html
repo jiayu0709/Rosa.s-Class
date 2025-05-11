@@ -1,242 +1,255 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>課程資訊</title>
-  <style>
-    body {
-      font-family: 'Noto Sans TC', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>課程資訊</title>
+    <style>
+      body {
+        font-family: "Noto Sans TC", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
 
-    .container {
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
+      .container {
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+      }
 
-    .other-class {
-      width: 90%;
-      max-width: 500px;
-      margin: 0 auto;
-    }
+      .other-class {
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
 
-    .other-class h3 {
-      margin-bottom: 15px;
-    }
+      .other-class h3 {
+        margin-bottom: 15px;
+      }
 
-    .bigcard {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      background: #fff;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-      margin: 0 auto 20px auto;
-      width: 90%;
-      max-width: 500px;
-      text-decoration: none;
-      color: inherit;
-    }
+      .bigcard {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        background: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+        margin: 0 auto 20px auto;
+        width: 90%;
+        max-width: 500px;
+        text-decoration: none;
+        color: inherit;
+      }
 
-    .bigcard img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
+      .bigcard img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
 
-    .bigcard-body {
-      padding: 10px;
-    }
+      .bigcard-body {
+        padding: 10px;
+      }
 
-    .bigcard-body h2 {
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
+      .bigcard-body h2 {
+        margin: 0 0 10px;
+        font-size: 22px;
+      }
 
-    .bigcard-body a {
-      color: #007aff;
-      text-decoration: none;
-    }
+      .bigcard-body a {
+        color: #007aff;
+        text-decoration: none;
+      }
 
-    .card {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      background: #fff;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08); 
-      margin: 0 auto 20px auto;
-      width: 90%; /* 寬度限制 */
-      max-width: 500px; /* 最大寬度限制 */
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
+      .card {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        background: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+        margin: 0 auto 20px auto;
+        width: 90%; /* 寬度限制 */
+        max-width: 500px; /* 最大寬度限制 */
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
 
-    .card img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
+      .card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
 
-    .card-body {
-      padding: 10px;
-    }
+      .card-body {
+        padding: 10px;
+      }
 
-    .card-body h2 {
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
+      .card-body h2 {
+        margin: 0 0 10px;
+        font-size: 22px;
+      }
 
-    .card-body a {
-      color: #007aff;
-      text-decoration: none;
-    }
+      .card-body a {
+        color: #007aff;
+        text-decoration: none;
+      }
 
-    .card-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+      .card-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
 
-    .card-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
+      .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
 
-    .card-content {
-      font-size: 12px;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <div class="bigcard">
-      <img src="images/Rosa_s_School_Logo.png" alt="logo圖片">
-      <div class="bigcard-body">
-        <h2>Rosa's School</h2>
-        <p><a href="https://www.facebook.com/rosasschool/" target="_blank">Facebook</a></p>
-        <p><a href="https://www.instagram.com/explore/locations/636544340/rosas-school/" target="_blank">Instagram</a></p>
+      .card-content {
+        font-size: 12px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bigcard">
+        <img src="images/Rosa_s_School_Logo.png" alt="logo圖片" />
+        <div class="bigcard-body">
+          <h2>Rosa's School</h2>
+          <p>
+            <a href="https://www.facebook.com/rosasschool/" target="_blank"
+              >Facebook</a
+            >
+          </p>
+          <p>
+            <a
+              href="https://www.instagram.com/explore/locations/636544340/rosas-school/"
+              target="_blank"
+              >Instagram</a
+            >
+          </p>
+        </div>
       </div>
+
+      <div class="other-class">
+        <h3>課程資訊</h3>
+      </div>
+      <div class="card-list" id="gnr-list"></div>
+      <div class="other-class">
+        <h3>特色課程✨</h3>
+      </div>
+      <div class="card-list" id="spc-list"></div>
     </div>
 
-    <div class="other-class">
-      <h3>課程資訊</h3>
-    </div>
-    <div class="card-list" id="gnr-list"></div>
-    <div class="other-class">
-      <h3>特色課程✨</h3>
-    </div>
-    <div class="card-list" id="spc-list"></div>
-  </div>
+    <script>
+      const gnrList = [
+        {
+          code: "baby",
+          name: "幼兒部",
+          descri: "適合3-6歲小朋友",
+          image: "images/rosa2.jpg",
+        },
+        {
+          code: "elementary",
+          name: "國小部",
+          descri: "6-12歲豐富課程",
+          image: "images/rosa2.jpg",
+        },
+        {
+          code: "junior",
+          name: "國高中部",
+          descri: "各科加強考前衝刺",
+          image: "images/rosa2.jpg",
+        },
+      ];
 
-  <script>
-    const gnrList = [
-    {
-      code: "baby",
-      name: "幼兒部",
-      descri: "適合3-6歲小朋友",
-      image: "images/rosa2.jpg"
-    },
-    {
-      code: "elementary",
-      name: "國小部",
-      descri: "6-12歲豐富課程",
-      image: "images/rosa2.jpg"
-    },
-    {
-      code: "junior",
-      name: "國高中部",
-      descri: "各科加強考前衝刺",
-      image: "images/rosa2.jpg"
-    }
-    ];
+      const spcList = [
+        {
+          code: "composition",
+          id: 1004,
+          name: "溫美玉科技互動作文",
+          descri:
+            "💡108課綱素養跨領域<br>💡精緻化課程設計<br>💡適齡適性課程設計<br>💡課程系統從小紮根",
+          image: "images/rosa15.jpg",
+        },
+        {
+          id: 1005,
+          name: "科學樂高",
+          descri:
+            "💡想像力無限延伸<br>💡創意思考力教學<br>💡適齡適性課程設計<br>💡精緻化課程設計",
+          image: "images/rosa16.jpg",
+        },
+      ];
 
-    const spcList = [
-    {
-      code: "composition",
-      id: 1004,
-      name: "溫美玉科技互動作文",
-      descri: "💡108課綱素養跨領域<br>💡精緻化課程設計<br>💡適齡適性課程設計<br>💡課程系統從小紮根",
-      image: "images/rosa2.jpg"
-    },
-    {
-        id: 1005,
-        name: "科學樂高",
-        descri: "💡想像力無限延伸<br>💡創意思考力教學<br>💡適齡適性課程設計<br>💡精緻化課程設計",
-        image: "images/rosa2.jpg"
-    }
-    ]
+      const list = document.getElementById("gnr-list");
 
-    const list = document.getElementById("gnr-list");
-
-    gnrList.forEach(gnr => {
-      const a = document.createElement("a");
-      a.className = "card";
-      a.href = `detail.html?gnr=${gnr.code}`; 
-      a.innerHTML = `
+      gnrList.forEach((gnr) => {
+        const a = document.createElement("a");
+        a.className = "card";
+        a.href = `detail.html?gnr=${gnr.code}`;
+        a.innerHTML = `
         <img src="${gnr.image}" alt="課程圖片" />
         <div class="card-body">
           <div class="card-title">${gnr.name}</div>
           <div class="card-content">${gnr.descri}</div>
         </div>
       `;
-      list.appendChild(a);
-    });
+        list.appendChild(a);
+      });
 
-    const spclist = document.getElementById("spc-list");
+      const spclist = document.getElementById("spc-list");
 
-    spcList.forEach(spc => {
-      const a = document.createElement("a");
-      a.className = "card";
-      if (spc.id) {
-        a.href = `final.html?spc=${spc.code}&id=${spc.id}`;
-      } else {
-        a.href = `detail.html?spc=${spc.code}`;
-      }
-      a.innerHTML = `
+      spcList.forEach((spc) => {
+        const a = document.createElement("a");
+        a.className = "card";
+        if (spc.id) {
+          a.href = `final.html?spc=${spc.code}&id=${spc.id}`;
+        } else {
+          a.href = `detail.html?spc=${spc.code}`;
+        }
+        a.innerHTML = `
         <img src="${spc.image}" alt="特色課程圖片" />
         <div class="card-body">
           <div class="card-title">${spc.name}</div>
           <div class="card-content">${spc.descri}</div>
         </div>
       `;
-      spclist.appendChild(a);
-    });
+        spclist.appendChild(a);
+      });
 
-    if (window.location.search.includes("code=") || window.location.search.includes("state=")) {
-      const cleanUrl = window.location.origin + window.location.pathname;
-      window.location.replace(cleanUrl);
-    }
+      if (
+        window.location.search.includes("code=") ||
+        window.location.search.includes("state=")
+      ) {
+        const cleanUrl = window.location.origin + window.location.pathname;
+        window.location.replace(cleanUrl);
+      }
 
-    async function main() {
-      await liff.init({ liffId: "2007250477-mjA9gVo2" });
-      if (liff.isLoggedIn()) {
-        const profile = await liff.getProfile();
-        document.getElementById("userInfo").innerHTML = `
+      async function main() {
+        await liff.init({ liffId: "2007250477-mjA9gVo2" });
+        if (liff.isLoggedIn()) {
+          const profile = await liff.getProfile();
+          document.getElementById("userInfo").innerHTML = `
           <p>歡迎，${profile.displayName}</p>
           <img src="${profile.pictureUrl}" width="80" style="border-radius: 50%" />
         `;
+        }
       }
-    }
-  </script>
-
-</body>
+    </script>
+  </body>
 </html>
