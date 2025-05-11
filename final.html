@@ -79,6 +79,25 @@
         transform: translateY(-2px);
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
       }
+      .reserve-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007aff;
+        border: none;
+        border-radius: 999px;
+        text-decoration: none;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+      }
+
+      .reserve-button:hover {
+        background-color: #005ecb;
+      }
 
       .desc-grid {
         display: grid;
@@ -763,6 +782,11 @@
             });
           });
         }
+        html += `
+  <div style="text-align: center;">
+    <a href="https://forms.gle/4b6MV1VVDCamj53Q9" class="reserve-button" target="_blank">預約課程</a>
+  </div>
+`;
         detailBox.innerHTML = html;
       } else {
         detailBox.innerHTML = `<p>查無此課程。</p>`;
