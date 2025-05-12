@@ -160,7 +160,12 @@
       </div>
       <div style="text-align: center; margin-top: 30px">
         <a href="javascript:history.back()" class="back-button">返回上一頁</a>
-        <a href="#" class="reserve-button">預約課程</a>
+        <a
+          href="https://forms.gle/4b6MV1VVDCamj53Q9"
+          class="reserve-button"
+          target="_blank"
+          >預約課程</a
+        >
       </div>
     </div>
 
@@ -748,11 +753,6 @@
             .join("")}
         </ul>
       `;
-        html += `
-  <div style="text-align: center;">
-    <a href="https://forms.gle/4b6MV1VVDCamj53Q9" class="reserve-button" target="_blank">預約課程</a>
-  </div>
-`;
         if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
           html += `<p class="course-time-title">📅 開課時間：</strong></p>`;
           selectedCourse.time.forEach((group) => {
