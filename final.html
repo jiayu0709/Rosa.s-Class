@@ -756,7 +756,11 @@
             .join("")}
         </ul>
       `;
-
+        html += `
+  <div style="text-align: center;">
+    <a href="https://forms.gle/4b6MV1VVDCamj53Q9" class="reserve-button" target="_blank">預約課程</a>
+  </div>
+`;
         if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
           html += `<p class="course-time-title">📅 開課時間：</strong></p>`;
           selectedCourse.time.forEach((group) => {
@@ -782,11 +786,6 @@
             });
           });
         }
-        html += `
-  <div style="text-align: center;">
-    <a href="https://forms.gle/4b6MV1VVDCamj53Q9" class="reserve-button" target="_blank">預約課程</a>
-  </div>
-`;
         detailBox.innerHTML = html;
       } else {
         detailBox.innerHTML = `<p>查無此課程。</p>`;
