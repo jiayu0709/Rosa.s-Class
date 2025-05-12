@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>課程列表</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <style>
       body {
         font-family: "Noto Sans TC", sans-serif;
@@ -147,6 +152,23 @@
         transform: translateY(-2px);
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
       }
+
+      .social-icons {
+        margin: 20px auto 10px;
+        text-align: center;
+      }
+
+      .social-icons a {
+        margin: 0 10px;
+        color: #555;
+        font-size: 20px;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .social-icons a:hover {
+        color: #007aff;
+      }
     </style>
   </head>
   <body>
@@ -174,6 +196,22 @@
         <h3>課程資訊</h3>
       </div>
       <div class="card-list" id="course-list"></div>
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/rosasschool/"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/explore/locations/636544340/rosas-school/"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+      </div>
       <div style="text-align: center; margin-top: 30px">
         <a href="javascript:history.back()" class="back-button">返回上一頁</a>
       </div>
