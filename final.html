@@ -57,12 +57,21 @@
         text-decoration: none;
         color: inherit;
       }
-      .back-button {
+      .fixed-buttons {
         position: fixed;
         bottom: 16px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 6px 14px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        z-index: 1000;
+      }
+
+      .back-button,
+      .reserve-button {
+        padding: 8px 20px;
         font-size: 16px;
         font-weight: bold;
         color: #444;
@@ -72,28 +81,13 @@
         text-decoration: none;
         box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
         transition: all 0.2s ease-in-out;
-        z-index: 1000;
       }
-      .back-button:hover {
+
+      .back-button:hover,
+      .reserve-button:hover {
         background-color: #f9f9f9;
         transform: translateY(-2px);
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
-      }
-      .reserve-button {
-        display: inline-block;
-        margin-top: 20px;
-        left: 20px;
-        padding: 10px 24px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #fff;
-        background-color: #888;
-        border: none;
-        border-radius: 999px;
-        text-decoration: none;
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        transition: all 0.2s ease-in-out;
-        cursor: pointer;
       }
 
       .reserve-button:hover {
@@ -170,6 +164,7 @@
       </div>
       <div style="text-align: center; margin-top: 30px">
         <a href="javascript:history.back()" class="back-button">返回上一頁</a>
+        <a href="#" class="reserve-button">預約課程</a>
       </div>
     </div>
 
