@@ -794,16 +794,18 @@
               if (school.campus) {
                 html += `<p class="course-school">📍 ${school.campus}</strong></p>`;
               }
-              school.categories.forEach((cat) => {
-                if (cat.name) {
-                  html += `<p class="level-label">${cat.name}</p>`;
-                }
-                html += `<ul class="time-list">`;
-                cat.classes.forEach((cls) => {
-                  html += `<li>${cls.name} ${cls.time}</li>`;
+              if (school.categories && school.categories.length > 0) {
+                school.categories.forEach((cat) => {
+                  if (cat.name) {
+                    html += `<p class="level-label">${cat.name}</p>`;
+                  }
+                  html += `<ul class="time-list">`;
+                  cat.classes.forEach((cls) => {
+                    html += `<li>${cls.name} ${cls.time}</li>`;
+                  });
+                  html += `</ul>`;
                 });
-                html += `</ul>`;
-              });
+              }
             });
           });
         }
