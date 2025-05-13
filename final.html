@@ -208,14 +208,6 @@
               school: [
                 {
                   campus: "高大校",
-                  categories: [
-                    {
-                      classes: [
-                        { name: "A班", time: "週一 19:00–20:00" },
-                        { name: "B班", time: "週三 19:00–20:00" },
-                      ],
-                    },
-                  ],
                 },
               ],
             },
@@ -791,7 +783,7 @@
         </ul>
       `;
         if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
-          html += `<p class="course-time-title">📅 開課時間：</strong></p>`;
+          html += `<p class="course-time-title">📅 開課校區：</strong></p>`;
           selectedCourse.time.forEach((group) => {
             if (group.groupTitle) {
               html += `<p class="course-group-title">${group.groupTitle}</p>`;
