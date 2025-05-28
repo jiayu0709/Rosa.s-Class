@@ -460,6 +460,22 @@
           image: "images/rosalogo.png",
         },
         {
+          id: 5001,
+          name: "暑假、寒假營隊課程",
+          descri:
+            "✔️多元素養營隊<br>✔️學科知識課程<br>✔️結合創意特色課程<br>✔️精緻多元深度之旅",
+          time: [
+            {
+              school: [
+                {
+                  campus: "旗艦校、高大校",
+                },
+              ],
+            },
+          ],
+          image: "images/rosalogo1.png",
+        },
+        {
           id: 2005,
           name: "全科一對一輔導班",
           descri:
@@ -501,6 +517,13 @@
             .join("")}
         </ul>
       `;
+        if (selectedCourse.id === 5001) {
+          html += `
+      <div style="margin-top: 20px;">
+        <img src="images/夏令營.jpg" alt="課程說明A4" style="width:100%; max-width:595px; height:auto; display:block; margin:auto; border-radius:8px;" />
+      </div>
+    `;
+        }
         if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
           html += `<p class="course-time-title">📅 開課校區：</strong></p>`;
           selectedCourse.time.forEach((group) => {
