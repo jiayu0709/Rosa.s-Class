@@ -91,13 +91,6 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
 
-      .card img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-
       .card-body {
         padding: 10px;
       }
@@ -362,7 +355,6 @@
         a.className = "card";
         a.href = `final.html?gnr=${gnr}&id=${course.id}`;
         a.innerHTML = `
-        <img src="${course.image}" alt="課程課程圖片" />
         <div class="card-body">
           <div class="card-title">${course.name}</div>
           <div class="card-content">${course.descri}</div>
