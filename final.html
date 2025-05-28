@@ -519,10 +519,12 @@
       `;
         if (selectedCourse.id === 5001) {
           html += `
-      <div style="margin-top: 20px;">
-        <img src="images/夏令營.jpg" alt="課程說明A4" style="width:100%; max-width:100%; height:auto; display:block; margin:auto; border-radius:8px;" />
-      </div>
-    `;
+    <div style="margin-top: 20px;">
+      <img src="images/summer_course.png"
+           alt="暑期課程表"
+           style="width:100%; height:auto; max-width:100%; border-radius:8px; display:block; margin:auto;" />
+    </div>
+  `;
         }
         if (selectedCourse.time && Array.isArray(selectedCourse.time)) {
           html += `<p class="course-time-title">📅 開課校區：</strong></p>`;
