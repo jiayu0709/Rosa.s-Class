@@ -526,7 +526,8 @@
         </ul>
       `;
         if (selectedCourse.id === 5001) {
-          html += `
+          const extraImageBox = document.getElementById("extra-image");
+          extraImageBox.innerHTML = `
     <img src="images/夏令營.jpg" alt="課程表" class="full-image" />
   `;
         }
