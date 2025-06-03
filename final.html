@@ -478,7 +478,7 @@
               ],
             },
           ],
-          image: "images/rosalogo1.png",
+          image: "夏令營.jpg",
         },
         {
           id: 2005,
@@ -508,7 +508,7 @@
       if (selectedCourse) {
         let html = `
         ${
-          [5001, 5002, 5003].includes(selectedCourse.id)
+          [5001].includes(selectedCourse.id)
             ? `<img src="images/a4_${selectedCourse.id}.jpg" alt="${selectedCourse.name}" class="full-image" />`
             : `<img src="${selectedCourse.image}" alt="${selectedCourse.name}" style="width:100%; max-height:300px; object-fit:cover; border-radius:8px;" />`
         }
