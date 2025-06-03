@@ -478,7 +478,7 @@
               ],
             },
           ],
-          image: "夏令營.jpg",
+          image: "a4.夏令營.jpg",
         },
         {
           id: 2005,
@@ -510,7 +510,7 @@
         ${
           [5001].includes(selectedCourse.id)
             ? `<img src="images/a4_${selectedCourse.id}.jpg" alt="${selectedCourse.name}" class="full-image" />`
-            : `<img src="${selectedCourse.image}" alt="${selectedCourse.name}" style="width:100%; max-height:300px; object-fit:cover; border-radius:8px;" />`
+            : `<img src="${selectedCourse.image}" alt="${selectedCourse.name}" />`
         }
         <h2>${selectedCourse.name}</h2>
         <ul class="desc-grid">
