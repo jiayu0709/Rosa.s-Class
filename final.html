@@ -568,7 +568,12 @@
             const schools = group.school || [group];
             schools.forEach((school) => {
               if (school.campus) {
-                html += `<p class="course-school">📍 ${school.campus}</p>`;
+                const mapUrl = mapLinks[school.campus]; // 自動根據名稱抓地圖連結
+                if (mapUrl) {
+                  html += `<p class="course-school">📍 <a href="${mapUrl}" target="_blank">${school.campus}</a></p>`;
+                } else {
+                  html += `<p class="course-school">📍 ${school.campus}</p>`;
+                }
               }
               if (school.phone) {
                 html += `<p class="course-school">📞 <a href="tel:${school.phone}">${school.phone}</a></p>`;
