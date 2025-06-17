@@ -193,7 +193,7 @@
       <div class="fixed-buttons">
         <a href="javascript:history.back()" class="fixed-button">返回上一頁</a>
         <a
-          href="https://forms.gle/4b6MV1VVDCamj53Q9"
+          href="https://forms.gle/iKBSoJHiNvikXT176"
           class="fixed-button"
           target="_blank"
           >預約課程</a
@@ -572,7 +572,7 @@
             const schools = group.school || [group];
             schools.forEach((school) => {
               if (school.campus) {
-                const mapUrl = mapLinks[school.campus]; // 自動根據名稱抓地圖連結
+                const mapUrl = mapLinks[school.campus];
                 if (mapUrl) {
                   html += `<p class="course-school">📍 <a href="${mapUrl}" target="_blank">${school.campus}</a></p>`;
                 } else {
